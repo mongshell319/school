@@ -29,34 +29,18 @@
     user-select:none;
   }
 
-  /* ===== Background canvas ===== */
   #stars{position:fixed;inset:0;z-index:0;}
 
-  /* ===== Layout ===== */
-  #app{
-    position:relative;z-index:2;
-    height:100%;
-    display:flex;align-items:center;justify-content:center;
-    padding:16px;
-  }
+  #app{position:relative;z-index:2;height:100%;display:flex;align-items:center;justify-content:center;padding:16px;}
   .stage{
-    width:min(900px,100%);
-    height:min(96vh,820px);
-    background:var(--panel);
-    border:1px solid rgba(94,242,255,.25);
-    border-radius:22px;
+    width:min(900px,100%);height:min(96vh,820px);
+    background:var(--panel);border:1px solid rgba(94,242,255,.25);border-radius:22px;
     box-shadow:0 0 60px rgba(94,242,255,.10), inset 0 0 60px rgba(180,107,255,.07);
-    backdrop-filter:blur(6px);
-    display:flex;flex-direction:column;
-    overflow:hidden;
-    position:relative;
+    backdrop-filter:blur(6px);display:flex;flex-direction:column;overflow:hidden;position:relative;
   }
 
-  /* ===== Top HUD ===== */
   #hud{
-    display:none;
-    align-items:center;gap:10px;
-    padding:10px 16px;
+    display:none;align-items:center;gap:10px;padding:10px 16px;
     border-bottom:1px solid rgba(94,242,255,.18);
     background:linear-gradient(90deg, rgba(94,242,255,.06), rgba(180,107,255,.06));
     font-size:13px;flex-wrap:wrap;
@@ -64,75 +48,57 @@
   .hudchar{font-family:'Jua';color:var(--neon);font-size:15px;letter-spacing:.5px;}
   .stat{display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.3);padding:4px 9px;border-radius:20px;border:1px solid rgba(255,255,255,.08);}
   .stat b{font-family:'Jua';}
-  .bar{width:80px;height:9px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden;}
+  .bar{width:72px;height:9px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden;}
   .bar>span{display:block;height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.9,.2,1);}
   .hp .bar>span{background:linear-gradient(90deg,#ff4d6d,#ff9a5b);}
+  .shadow .bar>span{background:linear-gradient(90deg,#7a3cff,#3a0a66);}
   #hudInv{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;}
   .chip{font-size:11px;padding:3px 8px;border-radius:20px;background:rgba(255,209,102,.14);border:1px solid rgba(255,209,102,.35);color:var(--magic);}
 
-  /* ===== Scene area ===== */
-  #scene{
-    flex:1;overflow-y:auto;padding:26px 30px 10px;
-    scrollbar-width:thin;scrollbar-color:rgba(94,242,255,.4) transparent;
-  }
+  #scene{flex:1;overflow-y:auto;padding:26px 30px 10px;scrollbar-width:thin;scrollbar-color:rgba(94,242,255,.4) transparent;}
   #scene::-webkit-scrollbar{width:8px;}
   #scene::-webkit-scrollbar-thumb{background:rgba(94,242,255,.35);border-radius:8px;}
 
-  .speaker{
-    font-family:'Jua';font-size:14px;letter-spacing:1px;margin:18px 0 4px;
-    display:inline-block;padding:2px 12px;border-radius:20px;
-  }
+  .speaker{font-family:'Jua';font-size:14px;letter-spacing:1px;margin:18px 0 4px;display:inline-block;padding:2px 12px;border-radius:20px;}
   .sp-승호{color:#8be9ff;background:rgba(94,242,255,.12);border:1px solid rgba(94,242,255,.4);}
   .sp-범진{color:#ffd28b;background:rgba(255,209,102,.12);border:1px solid rgba(255,209,102,.4);}
   .sp-세나{color:#ff9ad4;background:rgba(255,107,214,.12);border:1px solid rgba(255,107,214,.4);}
   .sp-???{color:#c8a0ff;background:rgba(180,107,255,.14);border:1px solid rgba(180,107,255,.45);animation:flickerName 2.4s infinite;}
+  .sp-수아{color:#9affd0;background:rgba(92,255,166,.12);border:1px solid rgba(92,255,166,.4);}
   @keyframes flickerName{0%,100%{opacity:1}50%{opacity:.55}}
 
   .line{font-size:18px;line-height:1.85;margin:6px 0 14px;}
   .narr{color:#b9c4e6;font-style:italic;}
   .big{font-family:'Black Han Sans';font-size:clamp(26px,6vw,46px);text-align:center;
        background:linear-gradient(90deg,var(--neon),var(--neon2),var(--magic));
-       -webkit-background-clip:text;background-clip:text;color:transparent;
-       margin:18px 0;filter:drop-shadow(0 0 18px rgba(94,242,255,.45));}
+       -webkit-background-clip:text;background-clip:text;color:transparent;margin:18px 0;
+       filter:drop-shadow(0 0 18px rgba(94,242,255,.45));}
   .glitch{animation:glitch .25s steps(2) infinite;}
   @keyframes glitch{0%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}100%{transform:translate(0)}}
 
-  /* ===== Choices ===== */
   #choices{padding:6px 30px 24px;display:flex;flex-direction:column;gap:11px;}
-  .choice{
-    font-family:'Gowun Dodum';font-size:16px;text-align:left;
-    color:var(--ink);cursor:pointer;
-    padding:14px 18px;border-radius:14px;
-    background:linear-gradient(90deg,rgba(94,242,255,.07),rgba(180,107,255,.07));
-    border:1px solid rgba(94,242,255,.25);
-    transition:.18s;position:relative;overflow:hidden;
-  }
+  .choice{font-family:'Gowun Dodum';font-size:16px;text-align:left;color:var(--ink);cursor:pointer;
+    padding:14px 18px;border-radius:14px;background:linear-gradient(90deg,rgba(94,242,255,.07),rgba(180,107,255,.07));
+    border:1px solid rgba(94,242,255,.25);transition:.18s;position:relative;overflow:hidden;}
   .choice:before{content:"▸";color:var(--neon);margin-right:10px;font-weight:bold;}
-  .choice:hover{transform:translateX(6px);border-color:var(--neon);
-    box-shadow:0 0 22px rgba(94,242,255,.25);background:linear-gradient(90deg,rgba(94,242,255,.16),rgba(180,107,255,.14));}
+  .choice:hover{transform:translateX(6px);border-color:var(--neon);box-shadow:0 0 22px rgba(94,242,255,.25);background:linear-gradient(90deg,rgba(94,242,255,.16),rgba(180,107,255,.14));}
   .choice .tag{float:right;font-size:12px;opacity:.85;font-family:'Jua';}
-  .tag.cou{color:#ff9a5b;} .tag.wis{color:#8be9ff;} .tag.fri{color:#ff9ad4;} .tag.luck{color:var(--magic);}
+  .tag.cou{color:#ff9a5b;} .tag.wis{color:#8be9ff;} .tag.fri{color:#ff9ad4;} .tag.luck{color:var(--magic);} .tag.hard{color:var(--danger);}
   .choice.locked{opacity:.4;cursor:not-allowed;}
   .choice.locked:hover{transform:none;box-shadow:none;}
 
-  /* ===== Title screen ===== */
   .center{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:24px;gap:8px;}
   .title-main{font-family:'Black Han Sans';font-size:clamp(40px,11vw,86px);line-height:.95;
     background:linear-gradient(120deg,#5ef2ff,#b46bff 50%,#ffd166);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     filter:drop-shadow(0 0 30px rgba(180,107,255,.5));letter-spacing:-1px;}
   .title-sub{font-family:'Jua';color:#9fb2e6;letter-spacing:4px;font-size:clamp(12px,3vw,16px);margin-top:6px;}
-  .btn{
-    font-family:'Jua';font-size:18px;letter-spacing:1px;cursor:pointer;
-    margin-top:18px;padding:14px 38px;border-radius:40px;border:none;color:#06121f;
-    background:linear-gradient(90deg,var(--neon),var(--neon2));
-    box-shadow:0 0 30px rgba(94,242,255,.5);transition:.2s;
-  }
+  .btn{font-family:'Jua';font-size:18px;letter-spacing:1px;cursor:pointer;margin-top:18px;padding:14px 38px;
+    border-radius:40px;border:none;color:#06121f;background:linear-gradient(90deg,var(--neon),var(--neon2));
+    box-shadow:0 0 30px rgba(94,242,255,.5);transition:.2s;}
   .btn:hover{transform:scale(1.06);box-shadow:0 0 46px rgba(180,107,255,.7);}
-  .btn.ghost{background:transparent;color:var(--neon);border:1px solid rgba(94,242,255,.5);box-shadow:none;}
   .credit{font-size:12px;color:#5e6e9c;margin-top:20px;line-height:1.7;}
 
-  /* character pick */
   .picks{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:14px;}
   .pick{width:230px;max-width:80vw;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12);
     border-radius:18px;padding:20px;cursor:pointer;transition:.2s;text-align:left;}
@@ -143,55 +109,47 @@
   .pick p{font-size:13px;color:#aebbe0;line-height:1.6;margin:6px 0;}
   .pick .mini{font-size:12px;font-family:'Jua';color:#8be9ff;}
 
-  /* ===== Dice ===== */
   #diceLayer{position:absolute;inset:0;z-index:30;display:none;align-items:center;justify-content:center;
     background:rgba(2,4,12,.72);backdrop-filter:blur(3px);flex-direction:column;gap:14px;}
   .dwrap{perspective:700px;}
   .die{width:120px;height:120px;position:relative;transform-style:preserve-3d;}
   .die.roll{animation:tumble 1.1s cubic-bezier(.3,.7,.3,1) forwards;}
+  /* 회전을 360의 배수로 끝내 숫자가 거울처럼 뒤집히지 않게 함 */
   @keyframes tumble{
-    0%{transform:rotateX(0) rotateY(0) scale(.6)}
-    70%{transform:rotateX(720deg) rotateY(900deg) scale(1.15)}
-    100%{transform:rotateX(720deg) rotateY(900deg) scale(1)}
+    0%{transform:rotateX(0deg) rotateY(0deg) scale(.6)}
+    65%{transform:rotateX(540deg) rotateY(660deg) scale(1.15)}
+    100%{transform:rotateX(720deg) rotateY(720deg) scale(1)}
   }
   .face3d{position:absolute;width:120px;height:120px;border-radius:18px;
     background:linear-gradient(135deg,#1b2350,#0c1130);border:2px solid var(--neon);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Black Han Sans';font-size:60px;color:var(--neon);
+    display:flex;align-items:center;justify-content:center;font-family:'Black Han Sans';font-size:60px;color:var(--neon);
     box-shadow:inset 0 0 30px rgba(94,242,255,.3),0 0 30px rgba(94,242,255,.4);}
-  .dresult{font-family:'Black Han Sans';font-size:30px;opacity:0;transition:.4s;text-align:center;}
+  .dresult{font-family:'Black Han Sans';font-size:28px;opacity:0;transition:.4s;text-align:center;}
   .dresult.show{opacity:1;}
   .dgood{color:var(--good);text-shadow:0 0 24px var(--good);}
   .dbad{color:var(--danger);text-shadow:0 0 24px var(--danger);}
-  .dcheck{font-family:'Jua';color:#cdd8ff;font-size:16px;letter-spacing:1px;}
+  .dcheck{font-family:'Jua';color:#cdd8ff;font-size:16px;letter-spacing:1px;text-align:center;padding:0 16px;}
 
-  /* ===== FX overlays ===== */
   #flash{position:fixed;inset:0;z-index:40;background:#fff;opacity:0;pointer-events:none;}
   .shake{animation:shake .5s;}
   @keyframes shake{0%,100%{transform:translate(0)}20%{transform:translate(-8px,4px)}40%{transform:translate(8px,-4px)}60%{transform:translate(-6px,-3px)}80%{transform:translate(6px,3px)}}
-  #vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
-    box-shadow:inset 0 0 200px rgba(0,0,0,.7);transition:box-shadow 1s;}
+  #vignette{position:fixed;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 200px rgba(0,0,0,.7);transition:box-shadow 1s;}
   .danger-mode #vignette{box-shadow:inset 0 0 220px rgba(255,0,60,.45);}
 
-  .toast{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:35;
-    font-family:'Jua';padding:8px 18px;border-radius:30px;font-size:14px;
-    background:rgba(0,0,0,.7);border:1px solid var(--neon);color:var(--neon);
-    opacity:0;transition:.35s;white-space:nowrap;}
+  .toast{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:35;font-family:'Jua';
+    padding:8px 18px;border-radius:30px;font-size:14px;background:rgba(0,0,0,.7);border:1px solid var(--neon);
+    color:var(--neon);opacity:0;transition:.35s;white-space:nowrap;}
   .toast.show{opacity:1;}
 
   .fade-in{animation:fadeUp .55s ease both;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-  /* sound toggle */
-  #snd{position:absolute;top:10px;right:12px;z-index:36;cursor:pointer;font-size:18px;
-    background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:50%;
-    width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--neon);}
+  #snd{position:absolute;top:10px;right:12px;z-index:36;cursor:pointer;font-size:18px;background:rgba(0,0,0,.4);
+    border:1px solid rgba(255,255,255,.15);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--neon);}
 
   .hr{height:1px;background:linear-gradient(90deg,transparent,rgba(94,242,255,.4),transparent);margin:18px 0;}
   .center .btn{min-width:200px;}
-  @media(max-width:560px){
-    #scene{padding:18px 18px 8px;} .line{font-size:16px;} #choices{padding:6px 18px 18px;}
-  }
+  @media(max-width:560px){#scene{padding:18px 18px 8px;} .line{font-size:16px;} #choices{padding:6px 18px 18px;} .bar{width:56px;}}
 </style>
 </head>
 <body>
@@ -210,6 +168,7 @@
       <div class="stat"><b style="color:#ff9a5b">용기</b><div class="bar"><span id="bCou" style="background:linear-gradient(90deg,#ff9a5b,#ffd166)"></span></div></div>
       <div class="stat"><b style="color:#8be9ff">지혜</b><div class="bar"><span id="bWis" style="background:linear-gradient(90deg,#5ef2ff,#8be9ff)"></span></div></div>
       <div class="stat"><b style="color:#ff9ad4">우정</b><div class="bar"><span id="bFri" style="background:linear-gradient(90deg,#ff6bd6,#ff9ad4)"></span></div></div>
+      <div class="stat shadow"><b style="color:#b48bff">침식</b><div class="bar"><span id="bShd"></span></div></div>
       <div id="hudInv"></div>
     </div>
 
@@ -226,68 +185,58 @@
 
 <script>
 /* =========================================================
-   방과 후, 균열  —  인터랙티브 TRPG 엔진
-   안내자: 승호 선생님 / 등장인물: 범진, 세나
+   방과 후, 균열 — 인터랙티브 TRPG (확장판)
+   안내자: 승호 선생님 / 주인공: 범진·세나
    ========================================================= */
 
-/* ---------- 사운드 (WebAudio, 파일 불필요) ---------- */
+/* ---------- 사운드 ---------- */
 let AC=null, sndOn=false;
 function audio(){ if(!AC){ try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){} } return AC; }
 function beep(freq=440,dur=.12,type='sine',vol=.08){
   if(!sndOn) return; const ac=audio(); if(!ac) return;
   const o=ac.createOscillator(), g=ac.createGain();
-  o.type=type; o.frequency.value=freq; o.connect(g); g.connect(ac.destination);
+  o.type=type;o.frequency.value=freq;o.connect(g);g.connect(ac.destination);
   g.gain.setValueAtTime(vol,ac.currentTime);
   g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+dur);
-  o.start(); o.stop(ac.currentTime+dur);
+  o.start();o.stop(ac.currentTime+dur);
 }
-function chord(arr,dur=.4){ arr.forEach((f,i)=>setTimeout(()=>beep(f,dur,'triangle',.06),i*60)); }
+function chord(arr,dur=.4){arr.forEach((f,i)=>setTimeout(()=>beep(f,dur,'triangle',.06),i*60));}
 document.getElementById('snd').onclick=function(){
-  sndOn=!sndOn; this.textContent=sndOn?'🔊':'🔇'; if(sndOn){audio(); beep(660,.1);}
+  sndOn=!sndOn;this.textContent=sndOn?'🔊':'🔇';if(sndOn){audio();beep(660,.1);}
 };
 
-/* ---------- 별/입자 배경 ---------- */
+/* ---------- 배경 ---------- */
 const cv=document.getElementById('stars'), cx=cv.getContext('2d');
 let W,H,stars=[],particles=[];
 function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
-addEventListener('resize',resize); resize();
+addEventListener('resize',resize);resize();
 for(let i=0;i<140;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.3,s:Math.random()*.4+.05,t:Math.random()*6});
 let hue=200;
-function spawnBurst(x,y,color){
-  for(let i=0;i<26;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*4+1;
-    particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,color});}
-}
+function spawnBurst(x,y,color,n=26){for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,sp=Math.random()*4+1;
+  particles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,color});}}
 function loop(){
   cx.clearRect(0,0,W,H);
-  for(const s of stars){
-    s.t+=s.s*.05; const tw=.5+Math.sin(s.t)*.5;
-    cx.beginPath();cx.fillStyle=`hsla(${hue},90%,${70}%,${.3+tw*.6})`;
+  for(const s of stars){s.t+=s.s*.05;const tw=.5+Math.sin(s.t)*.5;
+    cx.beginPath();cx.fillStyle=`hsla(${hue},90%,70%,${.3+tw*.6})`;
     cx.arc(s.x,s.y,s.r*(0.7+tw*.6),0,7);cx.fill();
-    s.y+=s.s; if(s.y>H){s.y=0;s.x=Math.random()*W;}
-  }
+    s.y+=s.s;if(s.y>H){s.y=0;s.x=Math.random()*W;}}
   for(let i=particles.length-1;i>=0;i--){const p=particles[i];
     p.x+=p.vx;p.y+=p.vy;p.vy+=.04;p.life-=.02;
     if(p.life<=0){particles.splice(i,1);continue;}
-    cx.globalAlpha=p.life;cx.fillStyle=p.color;cx.beginPath();cx.arc(p.x,p.y,2.4,0,7);cx.fill();cx.globalAlpha=1;
-  }
+    cx.globalAlpha=p.life;cx.fillStyle=p.color;cx.beginPath();cx.arc(p.x,p.y,2.4,0,7);cx.fill();cx.globalAlpha=1;}
   requestAnimationFrame(loop);
 }
 loop();
 function setMood(h){hue=h;}
 
-/* ---------- 게임 상태 ---------- */
-const S={
-  name:null, face:'🧑', hp:100, cou:50, wis:50, fri:50,
-  inv:[], flags:{}, allyTrust:0 /* 동료(다른 한 명) 신뢰 */
-};
-function other(){ return S.name==='범진'?'세나':'범진'; }
+/* ---------- 상태 ---------- */
+const S={name:null,face:'🧑',hp:100,cou:50,wis:50,fri:50,shadow:0,inv:[],flags:{},allyTrust:0,gameOver:false};
+function other(){return S.name==='범진'?'세나':'범진';}
+function otherColor(){return S.name==='범진'?'#ff9ad4':'#ffd166';}
 
-/* ---------- DOM ---------- */
-const sceneEl=document.getElementById('scene'),
-      choicesEl=document.getElementById('choices'),
-      hud=document.getElementById('hud');
+const sceneEl=document.getElementById('scene'),choicesEl=document.getElementById('choices'),hud=document.getElementById('hud');
 
-function clampStats(){['hp','cou','wis','fri'].forEach(k=>{S[k]=Math.max(0,Math.min(100,S[k]));});}
+function clampStats(){['hp','cou','wis','fri','shadow'].forEach(k=>{S[k]=Math.max(0,Math.min(100,S[k]));});}
 function refreshHUD(){
   clampStats();
   document.getElementById('hudName').textContent=S.face+' '+(S.name||'?');
@@ -295,7 +244,8 @@ function refreshHUD(){
   document.getElementById('bCou').style.width=S.cou+'%';
   document.getElementById('bWis').style.width=S.wis+'%';
   document.getElementById('bFri').style.width=S.fri+'%';
-  const inv=document.getElementById('hudInv'); inv.innerHTML='';
+  document.getElementById('bShd').style.width=S.shadow+'%';
+  const inv=document.getElementById('hudInv');inv.innerHTML='';
   S.inv.forEach(it=>{const c=document.createElement('span');c.className='chip';c.textContent='✦ '+it;inv.appendChild(c);});
 }
 
@@ -305,24 +255,24 @@ function flash(c='#fff',t=.55){const f=document.getElementById('flash');
   requestAnimationFrame(()=>{f.style.transition='opacity .5s';f.style.opacity=0;});}
 function shake(){const st=document.getElementById('stage');st.classList.remove('shake');void st.offsetWidth;st.classList.add('shake');}
 function toast(msg,color){const t=document.getElementById('toast');t.textContent=msg;
-  if(color)t.style.borderColor=t.style.color=color; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),1700);}
+  if(color)t.style.borderColor=t.style.color=color;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700);}
 function dangerMode(on){document.body.classList.toggle('danger-mode',on);}
 
-/* 스탯 변동 + 토스트 */
 function adjust(stat,amt){
-  const names={hp:'❤ 체력',cou:'용기',wis:'지혜',fri:'우정',allyTrust:'신뢰'};
-  S[stat]+=amt; clampStats(); refreshHUD();
-  const sign=amt>0?'+':''; const col=amt>0?'var(--good)':'var(--danger)';
-  toast(`${names[stat]} ${sign}${amt}`,amt>0?'#5cffa6':'#ff4d6d');
+  if(amt===0)return;
+  const names={hp:'❤ 체력',cou:'용기',wis:'지혜',fri:'우정',shadow:'침식',allyTrust:'유대'};
+  S[stat]+=amt;clampStats();refreshHUD();
+  const sign=amt>0?'+':'';
+  let col=amt>0?'#5cffa6':'#ff4d6d';
+  if(stat==='shadow')col=amt>0?'#b48bff':'#9affd0';
+  toast(`${names[stat]} ${sign}${amt}`,col);
   beep(amt>0?720:200,.12,'square',.05);
 }
 
-/* ---------- 타이핑 출력 ---------- */
+/* ---------- 출력 ---------- */
 let typing=false, skip=false;
 function addBlock(html){const d=document.createElement('div');d.className='fade-in';d.innerHTML=html;sceneEl.appendChild(d);sceneEl.scrollTop=sceneEl.scrollHeight;return d;}
-
-function typeLine(speaker, text, cls=''){
+function typeLine(speaker,text,cls=''){
   return new Promise(res=>{
     if(speaker){const s=document.createElement('div');s.className='speaker sp-'+speaker;s.textContent=speaker;sceneEl.appendChild(s);}
     const p=document.createElement('div');p.className='line '+cls;sceneEl.appendChild(p);
@@ -330,20 +280,14 @@ function typeLine(speaker, text, cls=''){
     let i=0;typing=true;skip=false;
     const tick=()=>{
       if(skip){p.innerHTML=text;typing=false;sceneEl.scrollTop=sceneEl.scrollHeight;return res();}
-      p.innerHTML=text.slice(0,i)+'<span style="opacity:.4">▍</span>';
-      i++;
-      if(i<=text.length){ if(text[i-1]!==' '&&i%2===0)beep(380+Math.random()*60,.02,'sine',.012);
-        setTimeout(tick, 18); }
+      p.innerHTML=text.slice(0,i)+'<span style="opacity:.4">▍</span>';i++;
+      if(i<=text.length){if(text[i-1]!==' '&&i%2===0)beep(380+Math.random()*60,.02,'sine',.012);setTimeout(tick,16);}
       else{p.innerHTML=text;typing=false;sceneEl.scrollTop=sceneEl.scrollHeight;res();}
-    };
-    tick();
+    };tick();
   });
 }
-// 클릭/스페이스로 타이핑 스킵
 addEventListener('click',()=>{if(typing)skip=true;});
 addEventListener('keydown',e=>{if(e.code==='Space'){if(typing)skip=true;}});
-
-/* 간단 대기 */
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 
 /* ---------- 선택지 ---------- */
@@ -351,526 +295,687 @@ function showChoices(list){
   choicesEl.innerHTML='';
   list.forEach(c=>{
     const b=document.createElement('div');b.className='choice fade-in';
-    if(c.locked){b.classList.add('locked');}
+    if(c.locked)b.classList.add('locked');
     b.innerHTML=c.text+(c.tag?`<span class="tag ${c.tagClass||''}">${c.tag}</span>`:'');
-    b.onclick=()=>{ if(c.locked){toast(c.lockMsg||'지금은 할 수 없다','#ff4d6d');return;}
-      beep(520,.08,'triangle',.05); choicesEl.innerHTML=''; c.go(); };
+    b.onclick=()=>{if(c.locked){toast(c.lockMsg||'지금은 할 수 없다','#ff4d6d');return;}
+      beep(520,.08,'triangle',.05);choicesEl.innerHTML='';c.go();};
     choicesEl.appendChild(b);
   });
   sceneEl.scrollTop=sceneEl.scrollHeight;
 }
 function clearChoices(){choicesEl.innerHTML='';}
 
-/* ---------- 주사위 판정 (d20 + 스탯보정) ---------- */
-function rollCheck(statKey, dc, label){
+/* "계속" 버튼: 긴 장면을 끊어서 호흡 주기 */
+function next(fn,label='▶ 계속'){showChoices([{text:label,tagClass:'luck',go:fn}]);}
+
+/* ---------- 주사위 판정 (재설계) ----------
+   d20 + 보정(stat/15, 최대 6) vs 난이도 DC.
+   20=대성공 무조건 / 1=대실패 무조건. 보정이 작아 실패가 자주 난다.
+*/
+function rollCheck(statKey,dc,label){
   return new Promise(res=>{
-    const layer=document.getElementById('diceLayer');
-    const die=document.getElementById('die'), face=document.getElementById('dieFace');
-    const resEl=document.getElementById('dRes'), checkEl=document.getElementById('dCheck');
+    const layer=document.getElementById('diceLayer'),die=document.getElementById('die'),face=document.getElementById('dieFace');
+    const resEl=document.getElementById('dRes'),checkEl=document.getElementById('dCheck');
     const statName={cou:'용기',wis:'지혜',fri:'우정'}[statKey]||'';
-    const bonus=Math.floor((S[statKey]||50)/10); // 스탯 보정
-    checkEl.innerHTML=`🎲 ${label} &nbsp;|&nbsp; <span style="color:#8be9ff">${statName} 판정</span> &nbsp; (목표 ${dc} 이상)`;
-    resEl.className='dresult'; resEl.textContent='';
-    layer.style.display='flex'; face.textContent='?';
+    const bonus=Math.min(6,Math.floor((S[statKey]||0)/15));
+    checkEl.innerHTML=`🎲 ${label}<br><span style="color:#8be9ff">${statName} 판정</span> · 보정 +${bonus} · 목표 ${dc} 이상`;
+    resEl.className='dresult';resEl.textContent='';
+    layer.style.display='flex';face.textContent='?';face.style.color='var(--neon)';
     die.classList.remove('roll');void die.offsetWidth;die.classList.add('roll');
     beep(300,.1,'sawtooth',.05);
-    let f=0;const spin=setInterval(()=>{face.textContent=1+Math.floor(Math.random()*20);beep(500+Math.random()*200,.02,'square',.02);},70);
+    const spin=setInterval(()=>{face.textContent=1+Math.floor(Math.random()*20);beep(500+Math.random()*200,.02,'square',.02);},70);
     setTimeout(()=>{
       clearInterval(spin);
-      const raw=1+Math.floor(Math.random()*20);
-      const total=raw+bonus;
-      const crit = raw===20, fumble = raw===1;
-      const success = crit ? true : fumble ? false : total>=dc;
-      face.textContent=raw;
-      face.style.color=success?'var(--good)':'var(--danger)';
-      face.parentElement.parentElement;
+      const raw=1+Math.floor(Math.random()*20),total=raw+bonus;
+      const crit=raw===20,fumble=raw===1;
+      const success=crit?true:fumble?false:total>=dc;
+      face.textContent=raw;face.style.color=success?'var(--good)':'var(--danger)';
       resEl.classList.add('show');
       let txt='';
-      if(crit){txt='🌟 대성공! ('+raw+'+'+bonus+'='+total+')';resEl.className='dresult show dgood';chord([523,659,784,1046]);flash('rgba(92,255,166,.4)');spawnBurst(W/2,H/2,'#5cffa6');}
-      else if(fumble){txt='💀 대실패... ('+raw+')';resEl.className='dresult show dbad';chord([300,220,160]);shake();flash('rgba(255,77,109,.4)');}
-      else{txt=(success?'✔ 성공':'✘ 실패')+` (${raw}+${bonus}=${total} vs ${dc})`;
-           resEl.className='dresult show '+(success?'dgood':'dbad');
-           success?chord([523,659,784]):chord([330,260]); if(!success)shake();}
+      if(crit){txt='🌟 대성공! ('+raw+' + '+bonus+')';resEl.className='dresult show dgood';chord([523,659,784,1046]);flash('rgba(92,255,166,.4)');spawnBurst(W/2,H/2,'#5cffa6');}
+      else if(fumble){txt='💀 대실패… ('+raw+')';resEl.className='dresult show dbad';chord([300,220,160]);shake();flash('rgba(255,77,109,.4)');}
+      else{txt=(success?'✔ 성공':'✘ 실패')+`  (${raw} + ${bonus} = ${total} / ${dc})`;
+        resEl.className='dresult show '+(success?'dgood':'dbad');success?chord([523,659,784]):chord([330,260]);if(!success)shake();}
       resEl.textContent=txt;
-      face.style.color=''; // reset for next
-      setTimeout(()=>{ layer.style.display='none'; res({success,crit,fumble,raw,total}); }, success?1500:1700);
+      setTimeout(()=>{layer.style.display='none';face.style.color='var(--neon)';res({success,crit,fumble,raw,total});},success?1450:1650);
     },1150);
   });
 }
 
 /* ---------- 아이템 ---------- */
-function give(item){ if(!S.inv.includes(item)){S.inv.push(item);refreshHUD();toast('획득: '+item,'#ffd166');beep(880,.12);spawnBurst(W*.8,H*.2,'#ffd166');} }
+function give(item){if(!S.inv.includes(item)){S.inv.push(item);refreshHUD();toast('획득: '+item,'#ffd166');beep(880,.12);spawnBurst(W*.8,H*.2,'#ffd166');}}
 function has(item){return S.inv.includes(item);}
 
-/* =========================================================
-   장면 정의
-   ========================================================= */
+/* ---------- 피해 + 게임오버 체크 ---------- */
+async function damage(amt,shadowAmt=0){
+  adjust('hp',-amt);
+  if(shadowAmt)adjust('shadow',shadowAmt);
+  if(S.hp<=0&&!S.gameOver){S.gameOver=true;await gameOver();return true;}
+  return false;
+}
 
+/* =========================================================
+   타이틀
+   ========================================================= */
 function start(){
-  setMood(220);
-  sceneEl.innerHTML='';
-  hud.style.display='none';
-  sceneEl.classList.add('center');
+  setMood(220);sceneEl.innerHTML='';hud.style.display='none';sceneEl.classList.add('center');
   sceneEl.innerHTML=`
     <div class="title-sub">인터랙티브 TRPG</div>
     <div class="title-main">방과 후,<br>균&nbsp;열</div>
     <div class="title-sub">— 평범했던 학교, 그날 오후부터 —</div>
     <button class="btn" id="startBtn">▶ 모험 시작</button>
-    <div class="credit">안내자 · 승호 선생님<br>플레이 시간 약 50~60분 · 선택과 주사위가 결말을 바꿉니다<br><span style="opacity:.6">소리(우측 상단 🔇)를 켜면 더 생생합니다</span></div>
-  `;
+    <div class="credit">안내자 · 승호 선생님 &nbsp;|&nbsp; 주인공 · 범진 / 세나<br>
+      플레이 시간 약 40~60분 · 선택과 주사위가 결말을 바꿉니다<br>
+      <span style="opacity:.65">화면을 클릭하면 대사를 빠르게 넘길 수 있어요 · 소리(우측 상단 🔇)를 켜면 더 생생합니다</span></div>`;
   document.getElementById('startBtn').onclick=()=>{audio();intro();};
 }
 
 async function intro(){
-  sceneEl.classList.remove('center'); sceneEl.innerHTML=''; clearChoices();
-  setMood(210); flash('rgba(94,242,255,.3)');
+  sceneEl.classList.remove('center');sceneEl.innerHTML='';clearChoices();setMood(210);flash('rgba(94,242,255,.3)');
   addBlock('<div class="big">🏫 한일고등학교 · 오후 4시 17분</div>');
-  await typeLine(null,'종례가 끝난 교실. 창밖으로 길게 늘어진 햇살, 텅 빈 복도, 멀리 운동장에서 들려오는 농구공 소리.','narr');
-  await wait(250);
-  await typeLine(null,'오늘도 어김없이 평범한 하루였다. ……그렇게 끝날 줄 알았다.','narr');
-  await wait(300);
-  await typeLine('승호','얘들아~ 종례 끝났는데 아직 안 갔니? 둘이 청소 당번이었구나.');
-  await typeLine('승호','선생님은 교무실 잠깐 들렀다 올 테니, 칠판이랑 사물함 쪽만 부탁할게. 금방 와.');
-  await wait(200);
+  await typeLine(null,'종례가 끝난 1학년 3반 교실. 창밖으로 길게 늘어진 햇살, 텅 빈 복도, 멀리 운동장에서 들려오는 농구공 소리.','narr');
+  await typeLine(null,'칠판지우개 터는 소리, 의자를 책상 위에 올리는 소리. 오늘도 어김없이 평범한 하루였다.','narr');
+  await typeLine(null,'……그렇게 끝날 줄 알았다.','narr');
+  next(intro2);
+}
+async function intro2(){
+  await typeLine('승호','얘들아~ 아직 안 갔니? 아, 오늘 둘이 청소 당번이었지.');
+  await typeLine('승호','선생님은 교무실에 결재 하나만 받고 올게. 칠판이랑 사물함 쪽만 부탁한다. 금방 와!');
+  await typeLine(null,'드르륵, 교실 문이 닫히고 발소리가 멀어진다. 이제 교실에는 단 두 사람.','narr');
   addBlock('<div class="hr"></div>');
   await typeLine(null,'먼저, 너는 누구의 시점으로 이 이야기를 살아갈까?','narr');
   pickCharacter();
 }
-
 function pickCharacter(){
   clearChoices();
-  const html=`
-   <div class="picks">
-     <div class="pick bj" id="pBj">
-       <div class="face">🔥</div><h3>범진</h3>
+  const html=`<div class="picks">
+     <div class="pick bj" id="pBj"><div class="face">🔥</div><h3>범진</h3>
        <p>겁이 없고 몸이 먼저 나가는 행동파. 위기 앞에서 가장 먼저 손을 내미는 아이.</p>
-       <div class="mini">용기 ↑↑ · 우정 ↑ · 지혜 ↓</div>
-     </div>
-     <div class="pick sn" id="pSn">
-       <div class="face">🌙</div><h3>세나</h3>
-       <p>관찰력이 뛰어나고 침착한 두뇌파. 남들이 못 보는 균열의 규칙을 읽어낸다.</p>
-       <div class="mini">지혜 ↑↑ · 우정 ↑ · 용기 ↓</div>
-     </div>
-   </div>`;
-  const d=addBlock(html);
-  document.getElementById('pBj').onclick=()=>chooseChar('범진','🔥',{cou:72,wis:42,fri:60});
-  document.getElementById('pSn').onclick=()=>chooseChar('세나','🌙',{cou:44,wis:74,fri:60});
+       <div class="mini">용기 ↑↑ · 우정 ↑ · 지혜 ↓</div></div>
+     <div class="pick sn" id="pSn"><div class="face">🌙</div><h3>세나</h3>
+       <p>관찰력이 뛰어나고 침착한 두뇌파. 남들이 못 보는 규칙을 읽어낸다.</p>
+       <div class="mini">지혜 ↑↑ · 우정 ↑ · 용기 ↓</div></div></div>`;
+  addBlock(html);
+  document.getElementById('pBj').onclick=()=>chooseChar('범진','🔥',{cou:66,wis:38,fri:55});
+  document.getElementById('pSn').onclick=()=>chooseChar('세나','🌙',{cou:38,wis:66,fri:55});
 }
-
 async function chooseChar(name,face,stats){
-  S.name=name;S.face=face;S.cou=stats.cou;S.wis=stats.wis;S.fri=stats.fri;S.hp=100;
-  refreshHUD(); hud.style.display='flex'; flash('rgba(180,107,255,.35)'); spawnBurst(W/2,H/2,'#b46bff');
-  beep(740,.15);
-  clearChoices(); sceneEl.innerHTML='';
-  await typeLine(null,`당신은 이제 <b style="color:${name==='범진'?'#ffd166':'#ff9ad4'}">${name}</b>. 그리고 옆에는 단짝 <b>${other()}</b>가 함께 있다.`,'narr');
-  await wait(200);
-  chapter1();
+  S.name=name;S.face=face;S.cou=stats.cou;S.wis=stats.wis;S.fri=stats.fri;S.hp=100;S.shadow=0;
+  refreshHUD();hud.style.display='flex';flash('rgba(180,107,255,.35)');spawnBurst(W/2,H/2,'#b46bff');beep(740,.15);
+  clearChoices();sceneEl.innerHTML='';
+  await typeLine(null,`당신은 이제 <b style="color:${name==='범진'?'#ffd166':'#ff9ad4'}">${name}</b>. 그리고 옆에는 단짝 <b style="color:${otherColor()}">${other()}</b>가 함께 있다.`,'narr');
+  if(name==='범진'){
+    await typeLine('세나','범진아, 칠판은 내가 닦을게. 넌 키 크니까 위쪽 사물함이랑 게시판 좀 봐줄래?');
+    await typeLine('범진','오케이. 근데 빨리 끝내고 떡볶이 먹으러 가자. 배고파 죽겠어.');
+  }else{
+    await typeLine('범진','세나야, 무거운 건 내가 옮길게. 넌 게시판이랑 분리수거 좀 봐줘. 너 꼼꼼하잖아.');
+    await typeLine('세나','응. 근데 너 또 대충 쓸고 끝내려는 거 아니지? 다 보고 있다.');
+  }
+  await typeLine(null,'두 사람의 가벼운 웃음소리가 교실에 퍼진다. ……바로 그때였다.','narr');
+  next(chapter1);
 }
 
-/* ===================== CHAPTER 1 : 균열 ===================== */
+/* =========================================================
+   제 1 장 · 깨어나는 균열
+   ========================================================= */
 async function chapter1(){
-  setMood(205);
+  sceneEl.innerHTML='';setMood(205);
   addBlock('<div class="big">제 1 장 · 깨어나는 균열</div>');
-  await typeLine(other(), `${S.name}야, 칠판은 내가 닦을게. 너 사물함 쪽 좀 봐줄래?`);
-  await typeLine(null,'걸레를 집으려는 순간—— 형광등이 지직, 하고 떨렸다.','narr');
-  flash('#fff',.3); shake(); beep(120,.3,'sawtooth',.07);
-  await typeLine(null,'한 번. 두 번. 그리고 교실 뒤편 벽에, 본 적 없는 <b>금빛 실금</b>이 번쩍 그어졌다.','narr');
+  await typeLine(null,'교실 벽시계가 4시 17분에서 멈췄다. 초침이 부들부들 떨더니, 거꾸로 돌기 시작한다.','narr');
+  await typeLine(null,'형광등이 지직, 하고 떨렸다. 한 번. 두 번.','narr');
+  flash('#fff',.3);shake();beep(120,.3,'sawtooth',.07);
+  await typeLine(null,'그리고 교실 뒤편 벽에, 본 적 없는 <b>금빛 실금</b>이 번쩍 그어졌다.','narr');
+  next(chapter1b);
+}
+async function chapter1b(){
   await typeLine(other(),'……방금 그거 봤어? 벽이… 갈라졌어.','glitch');
-  await wait(200);
-  await typeLine(null,'금은 살아있는 것처럼 천천히 벌어지며, 그 틈으로 별이 가득한 밤하늘 같은 어둠이 새어나온다.','narr');
-  setMood(270); dangerMode(true);
+  await typeLine(null,'금은 살아있는 것처럼 천천히 벌어지며, 그 틈으로 별이 가득한 밤하늘 같은 어둠이 새어나온다. 차가운 바람이 머리카락을 흔든다.','narr');
+  setMood(270);
+  await typeLine(null,'균열에서는 낮은 종소리와 함께, 알아들을 수 없는 속삭임이 흘러나온다. 심장이 빠르게 뛴다.','narr');
+  await typeLine(null,'어떻게 할까?','narr');
   showChoices([
     {text:'균열에 가까이 다가가 안을 들여다본다.',tag:'용기',tagClass:'cou',go:c1_approach},
-    {text:`침착하게 ${other()}를 뒤로 물러서게 하고 관찰한다.`,tag:'지혜',tagClass:'wis',go:c1_observe},
-    {text:'교무실의 승호 선생님을 부르러 달려간다.',go:c1_callTeacher},
+    {text:`침착하게 ${other()}를 뒤로 물러서게 하고 규칙을 관찰한다.`,tag:'지혜',tagClass:'wis',go:c1_observe},
+    {text:'일단 교실 밖으로 나가 승호 선생님을 부른다.',go:c1_callTeacher},
   ]);
 }
-
 async function c1_approach(){
-  adjust('cou',4);
+  adjust('cou',3);
   await typeLine(S.name,'…뭔지 봐야 알지. 잠깐만, 가까이 가볼게.');
-  await typeLine(null,'한 걸음. 또 한 걸음. 균열 너머에서 차가운 바람과 함께 낮은 종소리가 울린다.','narr');
-  beep(180,.5,'sine',.06);
-  const r=await rollCheck('cou',11,'균열을 들여다보기');
+  await typeLine(other(),'야, 위험해! …조심해.');
+  await typeLine(null,'한 걸음. 또 한 걸음. 균열 너머에서 무언가가 너를 마주 보는 느낌이 든다.','narr');
+  const r=await rollCheck('cou',13,'균열을 들여다보기');
   if(r.success){
-    await typeLine(null,'어둠 속에서 작은 빛 하나가 날아와 네 손바닥에 내려앉았다. 따뜻하다.','narr');
-    give('균열의 불씨'); adjust('cou',3);
-    await typeLine('승호','(어디선가 울리는 목소리) ……그 불씨를 놓치지 마라. 그것이 너희를 돌아오게 할 길이다.');
+    await typeLine(null,'어둠 속에서 작은 빛 하나가 날아와 네 손바닥에 사뿐히 내려앉았다. 따뜻하다.','narr');
+    give('균열의 불씨');adjust('cou',3);
+    await typeLine('???','(어디선가 울리는 목소리) ……그 불씨를 놓치지 마. 그게 너희를 돌아오게 할 유일한 길이니까.');
   }else{
-    await typeLine(null,'균열이 갑자기 너를 빨아들이려는 듯 출렁였다! 가까스로 몸을 뒤로 던졌다.','narr');
-    shake();flash('rgba(255,77,109,.35)');adjust('hp',-8);
+    await typeLine(null,'균열이 갑자기 너를 빨아들이려는 듯 출렁였다! 가까스로 몸을 뒤로 던졌지만 이마를 부딪쳤다.','narr');
+    if(await damage(10,5))return;
+    await typeLine(other(),`${S.name}! 괜찮아?! 함부로 다가가지 마…`);
   }
-  c1_pull();
+  next(c1_pull);
 }
 async function c1_observe(){
-  adjust('wis',4);
+  adjust('wis',3);
   await typeLine(S.name,`${other()}, 뒤로! 저거… 규칙이 있는 것 같아. 빛이 일정한 박자로 깜빡여.`);
-  const r=await rollCheck('wis',11,'균열의 규칙 읽기');
+  const r=await rollCheck('wis',13,'균열의 규칙 읽기');
   if(r.success){
-    await typeLine(S.name,'세 번 깜빡이고 한 번 쉰다. 마치… 숨을 쉬는 것처럼. 이건 그냥 구멍이 아니야.');
-    S.flags.readPattern=true; adjust('wis',3);
+    await typeLine(S.name,'세 번 깜빡이고 한 번 쉰다. 마치… 숨을 쉬는 것처럼. 이건 그냥 구멍이 아니야. 살아있어.');
+    S.flags.readPattern=true;adjust('wis',3);
     toast('단서: 균열은 "호흡"한다','#8be9ff');
   }else{
-    await typeLine(null,'규칙을 읽기도 전에, 균열이 굉음과 함께 폭발적으로 확장됐다!','narr');
-    shake();flash();adjust('hp',-5);
+    await typeLine(null,'규칙을 채 읽기도 전에, 균열이 굉음과 함께 폭발적으로 확장됐다! 책상이 종잇장처럼 빨려든다.','narr');
+    shake();flash();
+    if(await damage(6,4))return;
   }
-  c1_pull();
+  next(c1_pull);
 }
 async function c1_callTeacher(){
   await typeLine(S.name,'선생님!! 선생님—— 교실에 뭔가 이상한 게!!');
-  await typeLine(null,'복도로 뛰쳐나가려는 순간, 문이 쾅 닫히며 잠겼다. 돌아보니 균열은 이미 교실 절반을 삼키고 있다.','narr');
-  shake();flash('rgba(255,77,109,.35)');dangerMode(true);
+  await typeLine(null,'복도로 뛰쳐나가려는 순간, 문이 쾅 닫히며 잠겼다. 손잡이가 얼음처럼 차갑다.','narr');
+  shake();flash('rgba(255,77,109,.35)');
+  await typeLine(null,'돌아보니 균열은 이미 교실 절반을 삼키고 있었다.','narr');
   await typeLine(other(),`${S.name}, 못 나가! 우리… 갇혔어!`);
-  adjust('fri',2);
-  c1_pull();
+  adjust('fri',2);S.allyTrust+=1;
+  next(c1_pull);
 }
-
 async function c1_pull(){
-  await wait(200);
-  await typeLine(null,'그때, 균열이 거대한 숨을 들이쉬었다. 책상이, 의자가, 그리고 너희 둘의 발밑이 빨려들어간다!','narr');
-  flash('#fff',.8); shake(); chord([400,300,200,120]); beep(80,.6,'sawtooth',.08);
-  await typeLine(other(),`${S.name}!! 손 잡아——!!`,'glitch');
+  dangerMode(true);
+  await typeLine(null,'그때, 균열이 거대한 숨을 들이쉬었다. 책상이, 의자가, 그리고 너희 둘의 발밑 바닥이 통째로 빨려들어간다!','narr');
+  flash('#fff',.8);shake();chord([400,300,200,120]);beep(80,.6,'sawtooth',.08);
+  await typeLine(other(),`${S.name}!! 손—— 손 잡아!!`,'glitch');
   showChoices([
     {text:`${other()}의 손을 죽을힘으로 붙잡는다.`,tag:'우정',tagClass:'fri',go:c1_grab},
-    {text:'벽 손잡이를 잡고 버틴다.',tag:'용기',tagClass:'cou',go:c1_brace},
+    {text:'벽 손잡이를 붙잡고 버틴다.',tag:'용기',tagClass:'cou',go:c1_brace},
   ]);
 }
 async function c1_grab(){
-  adjust('fri',6); S.allyTrust+=2;
-  await typeLine(null,`너는 ${other()}의 손을 놓치지 않았다. 두 사람은 함께 빛 속으로 빨려들어갔다.`,'narr');
+  adjust('fri',5);S.allyTrust+=2;
+  await typeLine(null,`너는 ${other()}의 손을 끝까지 놓지 않았다. 두 사람은 서로를 꽉 끌어안은 채 빛 속으로 빨려들어갔다.`,'narr');
   await typeLine(S.name,'무슨 일이 있어도… 손 놓지 마!');
   toast('유대가 깊어졌다','#ff9ad4');
-  chapter2();
+  next(chapter2);
 }
 async function c1_brace(){
-  const r=await rollCheck('cou',12,'추락을 버티기');
-  if(r.success){ adjust('cou',4);
-    await typeLine(null,'손잡이를 붙잡았지만, 균열의 힘은 결국 너희를 통째로 끌어당겼다.','narr');
-  }else{ adjust('hp',-10);
-    await typeLine(null,'손잡이가 부러지며 그대로 빨려들어갔다. 어깨가 욱신거린다.','narr'); shake();
-  }
-  chapter2();
+  const r=await rollCheck('cou',13,'추락을 버티기');
+  if(r.success){adjust('cou',3);await typeLine(null,'손잡이를 붙잡았지만, 균열의 힘은 결국 너희를 통째로 끌어당겼다. 끝까지 버틴 덕에 다치진 않았다.','narr');}
+  else{await typeLine(null,'손잡이가 우지직 부러지며 그대로 빨려들어갔다. 어깨가 욱신거린다.','narr');shake();if(await damage(8,3))return;}
+  next(chapter2);
 }
 
-/* ===================== CHAPTER 2 : 뒤집힌 학교 ===================== */
+/* =========================================================
+   제 2 장 · 뒤집힌 학교 (허브)
+   ========================================================= */
 async function chapter2(){
-  sceneEl.innerHTML=''; clearChoices(); setMood(260); flash('rgba(180,107,255,.4)');
+  sceneEl.innerHTML='';clearChoices();setMood(260);flash('rgba(180,107,255,.4)');
   addBlock('<div class="big">제 2 장 · 뒤집힌 학교</div>');
-  await typeLine(null,'눈을 떴다. 같은 학교, 하지만 다르다. 복도는 보랏빛 안개로 가득하고, 천장에는 별이 흐르며, 사물함들이 공중에 거꾸로 떠 있다.','narr');
+  await typeLine(null,'눈을 떴다. 같은 학교, 하지만 다르다. 복도는 보랏빛 안개로 가득하고, 천장에는 은하수가 흐르며, 사물함들이 공중에 거꾸로 떠 있다.','narr');
+  await typeLine(null,'바닥의 타일은 물처럼 일렁이고, 창문 밖에는 두 개의 달이 떠 있다.','narr');
   await typeLine(other(),'여기… 우리 학교 맞아? 근데 전부 뒤집혀 있어…');
-  await wait(150);
-  await typeLine('승호','(스피커에서 지직거리며) …들리니? 다행이다. 선생님이야. 나도 이 안 어딘가에 갇혀 있어.');
-  await typeLine('승호','이곳은 학교의 "그림자". 균열이 너희 기억과 감정을 먹고 만든 세계란다. 여기서 빠져나가려면 <b>세 개의 봉인된 교실</b>을 풀고, 중앙 강당의 "균열의 핵"을 닫아야 해.');
-  await typeLine('승호','시간이 많지 않아. 그림자가 짙어질수록… 너희도 이곳의 일부가 된다. 서두르렴.');
-  await wait(150);
-  await typeLine(null,'복도 끝, 세 개의 문이 각기 다른 빛으로 맥동한다. 어디부터 풀어볼까?','narr');
-  hubChapter2();
+  next(chapter2b);
+}
+async function chapter2b(){
+  await typeLine('승호','(스피커에서 지직거리며) …들리니? 들린다면 대답하지 않아도 돼. 선생님이야. 나도 이 안 어딘가에 갇혀 있어.');
+  await typeLine('승호','여긴 학교의 "그림자". 균열이 너희 기억과 감정을 먹고 만들어낸 세계란다. 빠져나가려면 <b>세 개의 봉인된 교실</b>을 풀고, 중앙 강당의 "균열의 핵"을 닫아야 해.');
+  await typeLine('승호','조심해. 이곳에 오래 머물수록 그림자가 너희 마음에 스며든다. <b>침식</b>이 가득 차면… 너희도 이곳의 일부가 돼. 부디 서로를 놓치지 마라.');
+  await typeLine(null,'복도 끝, 세 개의 문이 각기 다른 빛으로 맥동한다. 그 사이로 옆문 하나가 빼꼼 열려 있다 — 과학실 쪽이다.','narr');
+  next(c2_meetSua);
+}
+async function c2_meetSua(){
+  // NPC 등장: 그림자 학생 수아
+  await typeLine(null,'복도를 걷던 중, 거꾸로 뜬 사물함 그늘에서 작은 그림자가 움찔거린다. 너희 또래의 여학생 — 반투명한 몸에, 눈동자만 또렷하다.','narr');
+  await typeLine('수아','…사람이다. 진짜 사람이야. 너희, 산 사람 맞지? 여기서 그런 거 처음 봐.');
+  await typeLine(other(),'너… 누구야? 우리한테 해코지하려는 거 아니지?');
+  await typeLine('수아','난 수아. …아주 오래전에 여기 갇혔어. 얼마나 됐는지도 모르겠어. 나가는 길은 못 찾았지만, 이 학교의 규칙은 좀 알아.');
+  showChoices([
+    {text:'"우리 좀 도와줄래? 봉인을 풀어야 해."',tag:'우정',tagClass:'fri',go:c2_suaHelp},
+    {text:'"믿어도 되는지 모르겠어." 경계하며 거리를 둔다.',tag:'지혜',tagClass:'wis',go:c2_suaWary},
+  ]);
+}
+async function c2_suaHelp(){
+  adjust('fri',3);S.flags.suaAlly=true;
+  await typeLine('수아','…정말? 날 무서워하지 않는 사람은 네가 처음이야. 좋아, 아는 건 다 알려줄게.');
+  await typeLine('수아','이 그림자들은 전부 누군가의 감정이 굳어서 생긴 거야. 힘으로만 이기려 들면 더 강해져. 마음을 봐야 해. 그리고… 빛나는 "불씨" 같은 걸 본 적 있다면, 절대 잃어버리지 마.');
+  toast('수아가 동료가 되었다','#9affd0');
+  await typeLine('수아','과학실에 가면 회복약을 만들 수 있어. 위험하긴 한데… 필요하면 들러봐. 난 봉인 근처엔 못 가. 무서워서. 미안.');
+  next(hubChapter2);
+}
+async function c2_suaWary(){
+  adjust('wis',2);
+  await typeLine(S.name,'…미안하지만, 지금은 누굴 믿을 상황이 아니라서.');
+  await typeLine('수아','…그렇지. 그래도 돼. 다들 그랬으니까. 그래도 하나만. 힘으로만 이기려 들면 그림자는 더 커져. 그것만 기억해.');
+  await typeLine(null,'수아는 쓸쓸하게 웃으며 다시 그늘 속으로 스며들었다.','narr');
+  next(hubChapter2);
 }
 
 function hubChapter2(){
-  const doors=[];
-  if(!S.flags.roomLib) doors.push({text:'📚 도서실 — 속삭이는 책들 (지혜)',tag:'지혜',tagClass:'wis',go:roomLibrary});
-  if(!S.flags.roomGym) doors.push({text:'🏀 체육관 — 그림자 거인 (용기)',tag:'용기',tagClass:'cou',go:roomGym});
-  if(!S.flags.roomMusic) doors.push({text:'🎵 음악실 — 슬픈 멜로디 (우정)',tag:'우정',tagClass:'fri',go:roomMusic});
+  sceneEl.scrollTop=sceneEl.scrollHeight;
   const solved=[S.flags.roomLib,S.flags.roomGym,S.flags.roomMusic].filter(Boolean).length;
-  if(solved>=3){ doors.push({text:'✨ 중앙 강당으로 — 균열의 핵을 마주한다',tag:'최종',tagClass:'luck',go:chapter3}); }
-  else if(solved>0){
-    addBlock(`<div class="hr"></div><div class="line narr">봉인을 ${solved}/3 풀었다. 강당 문은 아직 굳게 닫혀 있다.</div>`);
-  }
+  const doors=[];
+  if(!S.flags.roomLib)doors.push({text:'📚 도서실 — 속삭이는 책들',tag:'지혜',tagClass:'wis',go:roomLibrary});
+  if(!S.flags.roomGym)doors.push({text:'🏀 체육관 — 그림자 거인',tag:'용기',tagClass:'cou',go:roomGym});
+  if(!S.flags.roomMusic)doors.push({text:'🎵 음악실 — 슬픈 멜로디',tag:'우정',tagClass:'fri',go:roomMusic});
+  if(!S.flags.lab)doors.push({text:'⚗️ 과학실 — 수상한 실험 (선택)',tag:'모험',tagClass:'luck',go:roomLab});
+  if(solved>=3){doors.push({text:'✨ 중앙 강당으로 — 균열의 핵을 마주한다',tag:'최종',tagClass:'hard',go:intermission});}
+  else if(solved>0){addBlock(`<div class="line narr">봉인을 ${solved}/3 풀었다. 강당의 문은 아직 굳게 닫혀 있다.</div>`);}
   showChoices(doors);
 }
 
-/* ----- 도서실 (지혜) ----- */
-async function roomLibrary(){
-  sceneEl.innerHTML=''; setMood(190);
-  addBlock('<div class="big">📚 봉인 · 도서실</div>');
-  await typeLine(null,'책들이 스스로 페이지를 넘기며 수천 개의 목소리로 속삭인다. 공중엔 빛나는 세 권의 책이 떠 있다.','narr');
-  await typeLine('???','『정답을 고르는 자만이 나간다…… 틀리면, 너의 기억 한 조각을 가져가마.』');
-  await typeLine(other(), S.name==='세나'?'세나, 이런 건 네 특기잖아. 난 옆에서 볼게!':'침착하게 생각하자. 분명 단서가 있을 거야.');
-  await wait(150);
-  await typeLine(null,'책장에 수수께끼가 떠오른다:','narr');
-  addBlock('<div class="line" style="color:#ffd166;text-align:center;font-family:Jua">"세 번 들이쉬고 한 번 멈추는 것.<br>학교를 삼킨 그것의 이름은?"</div>');
-  const opts=[
-    {text:'균열은 "호흡"한다 — 숨 쉬는 틈',correct:true},
-    {text:'그저 무너진 벽일 뿐이다',correct:false},
-    {text:'선생님이 만든 환상이다',correct:false},
-  ];
-  // 1장에서 패턴을 읽었으면 힌트
-  if(S.flags.readPattern){ toast('1장의 관찰이 떠오른다!','#8be9ff'); }
-  showChoices(opts.map(o=>({text:o.text,go:()=>libAnswer(o.correct)})));
-}
-async function libAnswer(correct){
-  let r;
-  if(correct){
-    if(S.flags.readPattern){ await typeLine(S.name,'세 번 깜빡이고 한 번 쉰다… 균열은 숨을 쉰다. 살아있어.'); r={success:true,crit:false}; toast('통찰 적중!','#5cffa6'); }
-    else r=await rollCheck('wis',10,'지혜의 책 봉인');
-  } else {
-    await typeLine(S.name,'아니야, 이건 아닌 것 같은데…');
-    r={success:false};
-  }
-  if(r.success){
-    flash('rgba(94,242,255,.4)');spawnBurst(W/2,H/2,'#5ef2ff');chord([523,659,784,1046]);
-    await typeLine(null,'세 권의 책이 빛나며 하나의 열쇠로 합쳐졌다.','narr');
-    give('지혜의 룬'); adjust('wis',5); S.flags.roomLib=true;
-  }else{
-    await typeLine(null,'책들이 비명을 지르며 너의 기억 한 조각을 빨아들였다!','narr'); shake();flash('rgba(255,77,109,.35)');
-    adjust('hp',-12);
-    await typeLine(other(),`${S.name}, 괜찮아?! 다시… 다시 생각해보자.`); S.allyTrust+=1; adjust('fri',2);
-    // 재도전
-    await typeLine(null,'책장이 다시 빛난다. 한 번 더 기회가 있다.','narr');
-    showChoices([
-      {text:'균열은 "호흡"한다 — 숨 쉬는 틈',go:()=>libRetry()},
-      {text:'그저 무너진 벽일 뿐이다',go:()=>libRetry(false)},
-    ]);
-    return;
-  }
-  await wait(200); backToHub();
-}
-async function libRetry(correct=true){
-  if(correct){ flash('rgba(94,242,255,.4)');chord([523,659,784,1046]);spawnBurst(W/2,H/2,'#5ef2ff');
-    await typeLine(S.name,'맞아… 그건 살아 숨 쉬고 있어. 봉인을 풀겠어!');
-    give('지혜의 룬'); adjust('wis',4); S.flags.roomLib=true; await wait(150); backToHub();
-  } else { await typeLine(null,'또 틀렸다. 책들이 화를 내지만, 결국 답을 알려주듯 한 권을 떨어뜨린다.','narr');
-    adjust('hp',-6); give('지혜의 룬'); S.flags.roomLib=true; await wait(150); backToHub(); }
-}
-
-/* ----- 체육관 (용기) ----- */
-async function roomGym(){
-  sceneEl.innerHTML=''; setMood(20); dangerMode(true);
-  addBlock('<div class="big">🏀 봉인 · 체육관</div>');
-  await typeLine(null,'어둠 속, 농구 골대만큼 거대한 그림자 거인이 천천히 일어선다. 붉은 눈이 너희를 노려본다.','narr');
-  beep(90,.6,'sawtooth',.08); shake();
-  await typeLine('???','『두려움을 먹는 자다…… 도망쳐라. 그러면 더 맛있어지니까.』');
-  await typeLine(other(), S.name==='범진'?'범진, 네가 앞장서면 나도 무섭지 않아!':'무서워… 그치만 도망치면 안 돼.');
+/* ----- 과학실 (선택 / 회복·위험) ----- */
+async function roomLab(){
+  sceneEl.innerHTML='';setMood(140);S.flags.lab=true;
+  addBlock('<div class="big">⚗️ 과학실</div>');
+  await typeLine(null,'비커들이 공중에 둥둥 떠서 형형색색의 액체를 끓이고 있다. 칠판엔 누군가 휘갈겨 쓴 화학식이 빛난다.','narr');
+  await typeLine(other(),'여기서 뭔가 만들 수 있을 것 같은데… 잘못하면 터질 것 같기도 하고.');
+  await typeLine(null,'세 가지 색의 액체를 섞으면 회복약이 될 것 같다. 비율을 맞추는 게 관건이다.','narr');
   showChoices([
-    {text:'정면으로 맞선다 — 두려움을 보이지 않는다.',tag:'용기',tagClass:'cou',go:()=>gymFight('front')},
-    {text:`${other()}와 등을 맞대고 함께 싸운다.`,tag:'우정',tagClass:'fri',go:()=>gymFight('together')},
-    {text:'주변을 살펴 약점을 찾는다.',tag:'지혜',tagClass:'wis',go:()=>gymFight('weak')},
+    {text:'침착하게 화학식을 읽고 정확히 조합한다.',tag:'지혜',tagClass:'wis',go:()=>labMix('wis')},
+    {text:'감으로 과감하게 섞어본다.',tag:'용기',tagClass:'cou',go:()=>labMix('cou')},
+    {text:'위험해 보인다. 그냥 나간다.',go:()=>{typeLine(S.name,'…괜히 건드리지 말자.').then(()=>next(backToHub));}},
   ]);
 }
-async function gymFight(mode){
-  let dc=13, stat='cou';
-  if(mode==='together'){ stat='fri'; dc=12; adjust('fri',3);
-    await typeLine(S.name,`혼자가 아니야. ${other()}, 셋 셀게—— 하나, 둘, 셋!`); }
-  else if(mode==='weak'){ stat='wis'; dc=12;
-    await typeLine(S.name,'가슴 한가운데… 빛나는 핵이 있어! 저길 노리자!'); give('통찰: 거인의 핵'); }
-  else { await typeLine(S.name,'덤벼! 난 한 발짝도 안 물러서!'); adjust('cou',3); }
-  const r=await rollCheck(stat,dc,'그림자 거인');
+async function labMix(stat){
+  const dc=stat==='wis'?12:15;
+  const r=await rollCheck(stat,dc,'회복약 제조');
   if(r.success){
-    flash('rgba(255,154,91,.4)');spawnBurst(W/2,H/2,'#ff9a5b');shake();chord([392,523,659,784]);
-    await typeLine(null,'거인이 굉음과 함께 빛으로 흩어졌다. 그 자리에 붉게 타오르는 룬이 남았다.','narr');
-    give('용기의 룬'); adjust('cou',5); S.flags.roomGym=true; dangerMode(false);
+    flash('rgba(92,255,166,.4)');spawnBurst(W/2,H/2,'#5cffa6');chord([523,659,784]);
+    await typeLine(null,'액체가 맑은 초록빛으로 안정됐다! 마시자 따뜻한 기운이 온몸에 퍼진다.','narr');
+    give('치유의 물약');adjust('hp',15);adjust('shadow',-5);
   }else{
-    await typeLine(null,'거인의 주먹이 스쳤다! 하지만 너희는 물러서지 않았다.','narr'); shake();flash('rgba(255,77,109,.4)');
-    adjust('hp',-14);
-    await typeLine(other(),`다시 가자, ${S.name}! 이번엔 같이!`); S.allyTrust+=1; adjust('fri',2);
-    const r2=await rollCheck('fri',11,'거인 — 마지막 합공');
-    if(r2.success){ flash('rgba(255,154,91,.4)');chord([392,523,659,784]);spawnBurst(W/2,H/2,'#ff9a5b');
-      await typeLine(null,'둘의 힘을 합치자 거인이 무너졌다!','narr'); give('용기의 룬'); }
-    else { await typeLine(null,'간신히, 정말 간신히 거인의 핵을 깨뜨렸다.','narr'); adjust('hp',-8); give('용기의 룬'); }
-    adjust('cou',3); S.flags.roomGym=true; dangerMode(false);
+    await typeLine(null,'비커가 펑! 하고 터졌다. 매캐한 연기에 기침이 난다.','narr');
+    shake();flash('rgba(255,77,109,.35)');
+    if(await damage(8))return;
+    await typeLine(other(),'에휴… 그래도 한 병은 건졌어. 들고 가자.');
+    give('정체불명 물약');
   }
-  await wait(200); backToHub();
+  next(backToHub);
 }
 
-/* ----- 음악실 (우정) ----- */
+/* ----- 도서실 ----- */
+async function roomLibrary(){
+  sceneEl.innerHTML='';setMood(190);
+  addBlock('<div class="big">📚 봉인 · 도서실</div>');
+  await typeLine(null,'책들이 스스로 페이지를 넘기며 수천 개의 목소리로 속삭인다. 공중엔 세 권의 책이 빛나며 떠 있다.','narr');
+  await typeLine('???','『지식의 미궁에 온 걸 환영한다…… 세 개의 시험을 통과하라. 틀릴 때마다, 너의 기억 한 조각을 가져가마.』');
+  await typeLine(other(), S.name==='세나'?'세나, 이런 건 네 특기잖아. 난 옆에서 같이 생각할게.':'침착하게 하나씩 풀자. 분명 단서가 있을 거야.');
+  next(libQ1);
+}
+async function libQ1(){
+  await typeLine(null,'【첫 번째 책】 책장에 수수께끼가 떠오른다.','narr');
+  addBlock('<div class="line" style="color:#ffd166;text-align:center;font-family:Jua">"세 번 들이쉬고 한 번 멈추는 것.<br>학교를 삼킨 그것의 정체는?"</div>');
+  if(S.flags.readPattern)toast('1장의 관찰이 떠오른다!','#8be9ff');
+  showChoices([
+    {text:'균열은 "호흡"한다 — 살아 숨 쉬는 틈',go:()=>libA1(true)},
+    {text:'그저 무너진 벽일 뿐이다',go:()=>libA1(false)},
+    {text:'선생님이 만든 환상이다',go:()=>libA1(false)},
+  ]);
+}
+async function libA1(correct){
+  let ok=correct;
+  if(correct&&S.flags.readPattern){await typeLine(S.name,'세 번 깜빡이고 한 번 쉰다… 균열은 숨을 쉬어. 살아있는 거야.');ok=true;toast('통찰 적중!','#5cffa6');}
+  else if(correct){const r=await rollCheck('wis',12,'첫 번째 책');ok=r.success;}
+  else{await typeLine(S.name,'…아니야, 이건 아닌 것 같은데.');ok=false;}
+  if(ok){flash('rgba(94,242,255,.4)');spawnBurst(W/2,H/2,'#5ef2ff');chord([523,659,784]);
+    await typeLine(null,'첫 번째 책이 환하게 빛나며 책장 속으로 사라졌다.','narr');adjust('wis',2);}
+  else{await typeLine(null,'책이 비명을 지르며 너의 기억 한 조각을 빨아들였다! 머리가 어지럽다.','narr');shake();flash('rgba(255,77,109,.3)');if(await damage(6,6))return;}
+  next(libQ2);
+}
+async function libQ2(){
+  await typeLine(null,'【두 번째 책】 이번엔 논리 문제다.','narr');
+  addBlock('<div class="line" style="color:#ffd166;text-align:center;font-family:Jua">"빛이 강할수록 나는 짙어지고,<br>빛이 사라지면 나도 사라진다. 나는 무엇인가?"</div>');
+  showChoices([
+    {text:'그림자',go:()=>libA2(true)},
+    {text:'어둠',go:()=>libA2(false)},
+    {text:'거울',go:()=>libA2(false)},
+  ]);
+}
+async function libA2(correct){
+  if(correct){flash('rgba(94,242,255,.4)');chord([523,659,784]);spawnBurst(W/2,H/2,'#5ef2ff');
+    await typeLine(S.name,'그림자… 빛이 강할수록 짙어지지. 정답이야.');adjust('wis',2);
+    S.flags.libRiddle=true;toast('단서: 그림자는 빛에서 태어난다','#8be9ff');}
+  else{await typeLine(null,'책장이 흔들리며 차가운 바람이 휘몰아쳤다.','narr');shake();if(await damage(6,6))return;
+    await typeLine(S.name,'…정답은 그림자였구나. 빛이 강할수록 짙어진다니.');S.flags.libRiddle=true;}
+  next(libQ3);
+}
+async function libQ3(){
+  await typeLine(null,'【세 번째 책】 마지막 책이 스스로 펼쳐지며, 글자 대신 그림이 나타난다 — 등을 돌리고 우는 한 아이.','narr');
+  await typeLine('???','『마지막 물음. 이 학교의 그림자를 잠재우려면, 무엇이 필요한가?』');
+  showChoices([
+    {text:'더 강한 힘으로 짓누른다',go:()=>libA3('force')},
+    {text:'그림자의 마음을 이해하고 받아들인다',go:()=>libA3('heart')},
+    {text:'빛을 모두 꺼버린다',go:()=>libA3('dark')},
+  ]);
+}
+async function libA3(ans){
+  if(ans==='heart'){
+    flash('rgba(255,209,102,.5)');spawnBurst(W/2,H/2,'#ffd166');chord([523,659,784,1046]);
+    await typeLine(S.name,'그림자도 누군가의 마음이야. 짓누르는 게 아니라… 들어주고, 받아들이는 거야.');
+    await typeLine('???','『……오랜만이구나. 그 답을 말한 아이는. 통과다.』');
+    S.flags.libWisdom=true;adjust('wis',4);
+  }else{
+    const why=ans==='force'?'힘으로 짓누르려 하자 책장 전체가 분노로 일렁였다.':'빛을 끄려 하자 어둠이 너를 집어삼킬 듯 부풀었다.';
+    await typeLine(null,why+' 하지만 책은 결국 한숨처럼 잦아들며 답을 알려준다.','narr');shake();if(await damage(8,8))return;
+    await typeLine('???','『…틀렸다. 답은 "받아들임"이다. 부수려는 자는, 결국 부서진다.』');
+  }
+  flash('rgba(94,242,255,.5)');chord([523,659,784,1046,1318]);spawnBurst(W/2,H/2,'#5ef2ff',40);
+  await typeLine(null,'세 권의 책이 하나로 합쳐지며, 푸른 룬으로 응결됐다.','narr');
+  give('지혜의 룬');S.flags.roomLib=true;
+  next(backToHub);
+}
+
+/* ----- 체육관 ----- */
+async function roomGym(){
+  sceneEl.innerHTML='';setMood(20);dangerMode(true);
+  addBlock('<div class="big">🏀 봉인 · 체육관</div>');
+  await typeLine(null,'어둠 속, 농구 골대보다 거대한 그림자 거인이 천천히 일어선다. 붉은 눈이 너희를 노려본다. 바닥이 쿵, 쿵 울린다.','narr');
+  beep(90,.6,'sawtooth',.08);shake();
+  await typeLine('???','『두려움을 먹는 자다…… 도망쳐라. 도망치는 등짝이 제일 맛있거든.』');
+  await typeLine(other(), S.name==='범진'?'범진, 네가 앞장서면 나도 안 무서워!':'무서워… 그치만 도망치면 안 돼. 같이 하자.');
+  showChoices([
+    {text:'주변을 살펴 거인의 약점을 찾는다.',tag:'지혜',tagClass:'wis',go:()=>gymPrep('weak')},
+    {text:`${other()}와 작전을 짜고 호흡을 맞춘다.`,tag:'우정',tagClass:'fri',go:()=>gymPrep('plan')},
+    {text:'생각할 시간 없다. 곧장 달려든다.',tag:'용기',tagClass:'cou',go:()=>gymFight('front',0)},
+  ]);
+}
+async function gymPrep(mode){
+  if(mode==='weak'){
+    const r=await rollCheck('wis',12,'거인의 약점 탐색');
+    if(r.success){await typeLine(S.name,'가슴 한가운데… 빛나는 핵이 있어! 저길 노리면 돼!');S.flags.gymWeak=true;give('통찰: 거인의 핵');toast('전투가 쉬워졌다','#8be9ff');}
+    else{await typeLine(null,'어둠이 짙어 약점을 찾지 못했다. 그 사이 거인이 한 발 다가온다.','narr');shake();if(await damage(5,3))return;}
+  }else{
+    await typeLine(S.name,`${other()}, 내가 시선 끌게. 넌 옆으로 돌아. 셋 셀게—`);
+    adjust('fri',3);S.allyTrust+=1;S.flags.gymPlan=true;toast('합공 준비 완료','#ff9ad4');
+  }
+  next(()=>gymFight(mode==='weak'?'weak':'plan',0));
+}
+async function gymFight(mode,round){
+  let stat=mode==='plan'?'fri':mode==='weak'?'cou':'cou';
+  let dc=14;
+  if(S.flags.gymWeak)dc-=3;
+  if(S.flags.gymPlan&&mode==='plan')dc-=1;
+  const label=round===0?'그림자 거인 — 첫 합':'그림자 거인 — 반격';
+  if(round===0&&mode==='front'){await typeLine(S.name,'덤벼! 난 한 발짝도 안 물러서!');adjust('cou',2);}
+  const r=await rollCheck(stat,dc,label);
+  if(r.success){
+    flash('rgba(255,154,91,.4)');spawnBurst(W/2,H/2,'#ff9a5b');shake();chord([392,523,659,784]);
+    await typeLine(null,'거인이 굉음과 함께 빛으로 흩어졌다! 그 자리에 붉게 타오르는 룬이 남았다.','narr');
+    adjust('cou',3);give('용기의 룬');S.flags.roomGym=true;dangerMode(false);
+    next(backToHub);return;
+  }
+  // 실패
+  await typeLine(null,'거인의 거대한 주먹이 내리꽂혔다! 가까스로 굴러 피했지만 충격이 온몸을 울린다.','narr');
+  shake();flash('rgba(255,77,109,.4)');
+  if(await damage(12,4))return;
+  if(round>=1){
+    await typeLine(other(),`${S.name}, 더는 안 돼! 내가 도울게—— 같이 가자!`);S.allyTrust+=1;adjust('fri',2);
+    await typeLine(null,'둘은 마지막 힘을 모아 동시에 거인의 핵을 노렸다.','narr');
+    const r2=await rollCheck('fri',12,'거인 — 마지막 합공');
+    if(r2.success){flash('rgba(255,154,91,.4)');chord([392,523,659,784]);spawnBurst(W/2,H/2,'#ff9a5b');
+      await typeLine(null,'둘의 힘이 합쳐지자 거인이 마침내 무너졌다!','narr');}
+    else{await typeLine(null,'간신히, 정말 간신히 거인의 핵에 금을 냈다. 거인은 비틀거리다 스러졌다.','narr');if(await damage(6,4))return;}
+    adjust('cou',2);give('용기의 룬');S.flags.roomGym=true;dangerMode(false);
+    next(backToHub);return;
+  }
+  await typeLine(other(),'다시! 이번엔 침착하게!');
+  next(()=>gymFight(mode,round+1));
+}
+
+/* ----- 음악실 ----- */
 async function roomMusic(){
-  sceneEl.innerHTML=''; setMood(300);
+  sceneEl.innerHTML='';setMood(300);
   addBlock('<div class="big">🎵 봉인 · 음악실</div>');
   await typeLine(null,'먼지 쌓인 피아노가 저절로 슬픈 멜로디를 연주한다. 건반 위에, 너희를 똑 닮은 두 그림자가 등을 돌리고 앉아 있다.','narr');
   beep(523,.4,'sine',.05);setTimeout(()=>beep(440,.4,'sine',.05),300);setTimeout(()=>beep(392,.5,'sine',.05),600);
-  await typeLine('???',`『…우린 너희의 외로움이야. 아무도 우릴 봐주지 않았지. ${S.name}, 너도 그랬잖아?』`);
+  await typeLine('???',`『…우린 너희의 외로움이야. 아무도 우릴 봐주지 않았지. ${S.name}, 너도… 가끔은 그랬잖아?』`);
   await typeLine(other(),'저거… 우리 모습이야. 외면하면 안 될 것 같아.');
+  next(musicStep1);
+}
+async function musicStep1(){
+  await typeLine(null,'두 그림자가 천천히 고개를 돌린다. 얼굴이 보이지 않는 검은 형체. 그들이 다가가도 되겠냐는 듯 멈춰 선다.','narr');
   showChoices([
-    {text:'그림자에게 다가가 손을 내민다.',tag:'우정',tagClass:'fri',go:()=>musicAct('hand')},
-    {text:`${other()}와의 추억을 큰 소리로 말한다.`,tag:'우정',tagClass:'fri',go:()=>musicAct('memory')},
-    {text:'멜로디의 음을 분석해 화음을 맞춘다.',tag:'지혜',tagClass:'wis',go:()=>musicAct('harmony')},
+    {text:'그림자에게 먼저 다가가 손을 내민다.',tag:'우정',tagClass:'fri',go:()=>musicAct('hand')},
+    {text:`${other()}와의 진짜 추억을 큰 소리로 말한다.`,tag:'우정',tagClass:'fri',go:()=>musicAct('memory')},
+    {text:'멜로디를 분석해 밝은 화음을 더한다.',tag:'지혜',tagClass:'wis',go:()=>musicAct('harmony')},
   ]);
 }
 async function musicAct(mode){
-  let stat='fri',dc=11;
-  if(mode==='hand'){ await typeLine(S.name,'외롭게 둬서 미안해. 이제 같이 가자.'); }
-  else if(mode==='memory'){ adjust('fri',3);
-    await typeLine(S.name, S.name==='범진'?'세나, 기억나? 비 오는 날 우산 하나 같이 쓰고 집까지 뛰었던 거. 난 그때 하나도 안 외로웠어.':'범진아, 너 급식 좋아하는 거 다 나 준 거 기억나. 난 그게 얼마나 고마웠는데.');
-    dc=10; }
-  else { stat='wis'; await typeLine(S.name,'슬픈 단조야… 여기에 밝은 화음을 더하면, 멜로디가 바뀔 거야.'); }
+  let stat='fri',dc=13;
+  if(mode==='hand'){await typeLine(S.name,'…외롭게 둬서 미안해. 이제 같이 가자.');}
+  else if(mode==='memory'){adjust('fri',2);dc=12;
+    await typeLine(S.name, S.name==='범진'?'세나, 기억나? 비 오는 날 우산 하나 같이 쓰고 집까지 뛴 거. 난 그때 하나도 안 외로웠어.':'범진아, 너 급식 좋아하는 반찬 맨날 나 줬잖아. 난 그게 얼마나 고마웠는데.');}
+  else{stat='wis';await typeLine(S.name,'이 단조에… 3도 위 화음을 더하면 장조로 바뀌어. 슬픔을 다른 감정으로 안아줄 수 있어.');}
   const r=await rollCheck(stat,dc,'외로움의 그림자');
   if(r.success){
     flash('rgba(255,107,214,.4)');spawnBurst(W/2,H/2,'#ff6bd6');chord([523,659,784,880]);
-    await typeLine(null,'두 그림자가 돌아보며 미소 짓더니, 따뜻한 빛이 되어 너희 가슴으로 스며들었다.','narr');
-    give('우정의 룬'); adjust('fri',6); S.allyTrust+=2; S.flags.roomMusic=true;
+    await typeLine(null,'두 그림자가 처음으로 미소 짓더니, 따뜻한 빛이 되어 너희 가슴으로 스며들었다.','narr');
+    adjust('fri',4);S.allyTrust+=2;S.flags.musicGood=true;
     await typeLine(other(),`고마워, ${S.name}. 네가 있어서 하나도 안 무서워.`);
-  }else{
-    await typeLine(null,'멜로디가 비명처럼 일그러졌다. 그림자가 흐느낀다.','narr'); shake();adjust('hp',-8);
-    await typeLine(S.name,'…아니, 포기 안 해. 우린 절대 너희를 두고 가지 않아.');
-    flash('rgba(255,107,214,.3)');chord([523,659,784]);
-    await typeLine(null,'그 진심에, 그림자가 결국 녹아내리듯 빛이 되었다.','narr');
-    give('우정의 룬'); adjust('fri',4); S.flags.roomMusic=true;
+    next(musicReward);return;
   }
-  await wait(200); backToHub();
+  await typeLine(null,'멜로디가 비명처럼 일그러졌다. 그림자가 흐느끼며 검게 부풀어오른다.','narr');shake();
+  if(await damage(8,5))return;
+  await typeLine(S.name,'…아니. 포기 안 해. 우린 절대 너희를 두고 가지 않아.');
+  await typeLine(null,'그 진심이 닿았는지, 부풀던 그림자가 잠시 멈칫한다. 한 번 더 마음을 전할 기회다.','narr');
+  showChoices([
+    {text:`"네 외로움, 내가 알아. 나도 그랬으니까."`,tag:'우정',tagClass:'fri',go:musicRetry},
+    {text:`${other()}의 손을 잡고 함께 노래한다.`,tag:'우정',tagClass:'fri',go:musicRetry},
+  ]);
+}
+async function musicRetry(){
+  const r=await rollCheck('fri',11,'외로움의 그림자 — 마지막 진심');
+  if(r.success){flash('rgba(255,107,214,.4)');chord([523,659,784,880]);spawnBurst(W/2,H/2,'#ff6bd6');
+    await typeLine(null,'그림자가 결국 녹아내리듯 따뜻한 빛이 되었다.','narr');adjust('fri',3);S.allyTrust+=1;}
+  else{await typeLine(null,'마음이 완전히 닿진 못했지만, 그림자는 지친 듯 천천히 흩어졌다. 어딘가 씁쓸함이 남는다.','narr');if(await damage(5,5))return;}
+  S.flags.roomMusic=true;
+  next(musicReward);
+}
+async function musicReward(){
+  flash('rgba(255,107,214,.5)');chord([523,659,784,1046]);spawnBurst(W/2,H/2,'#ff6bd6',40);
+  await typeLine(null,'피아노 위에 분홍빛 룬이 떠오른다.','narr');
+  give('우정의 룬');S.flags.roomMusic=true;
+  next(backToHub);
 }
 
 async function backToHub(){
-  clearChoices();
+  sceneEl.innerHTML='';clearChoices();setMood(260);
   const solved=[S.flags.roomLib,S.flags.roomGym,S.flags.roomMusic].filter(Boolean).length;
   flash('rgba(94,242,255,.25)');
-  if(solved<3){
+  if(S.flags.suaAlly&&solved>0&&solved<3&&!S.flags['sua'+solved]){
+    S.flags['sua'+solved]=true;
+    await typeLine('수아',`봉인 하나를 또 풀었구나. 대단해… 난 한 번도 못 했던 건데. 너희라면 정말 나갈 수 있을지도 몰라.`);
+  }else if(solved<3){
     await typeLine('승호',`잘했어! 봉인 ${solved}개를 풀었구나. 남은 교실도 부탁한다. 너희라면 할 수 있어.`);
   }
   await typeLine(null,'다시 보랏빛 복도. 맥동하는 문들 앞에 섰다.','narr');
   hubChapter2();
 }
 
-/* ===================== CHAPTER 3 : 균열의 핵 ===================== */
-async function chapter3(){
-  sceneEl.innerHTML=''; clearChoices(); setMood(280); dangerMode(true);
-  flash('rgba(180,107,255,.5)'); shake();
-  addBlock('<div class="big glitch">제 3 장 · 균열의 핵</div>');
-  await typeLine(null,'강당 문이 세 개의 룬에 반응해 굉음과 함께 열린다. 천장까지 솟은 거대한 균열의 핵이, 검붉은 심장처럼 박동하고 있다.','narr');
-  beep(70,.8,'sawtooth',.09);
-  await typeLine('승호','이거였구나… 이게 모든 것의 중심이야. 얘들아, 잘 들어. 핵은 너희 감정을 거울처럼 비춘다. <b>분노로 부수려 하면 더 강해져.</b>');
-  // 핵의 정체 등장
-  await typeLine('???',`『……드디어 왔구나. 나는 이 학교가 삼킨 모든 외로움, 모든 두려움. 너희도… 결국 나처럼 될 거야.』`,'glitch');
-  await typeLine(other(),`${S.name}, 무섭지만… 끝까지 같이야. 알지?`); adjust('fri',2);
-  await wait(150);
-  await typeLine(null,'핵이 검은 촉수를 뻗어 너희를 덮친다! 세 번의 시험이 시작된다.','narr');
-  bossPhase1();
-}
-
-async function bossPhase1(){
-  await typeLine(null,'【시험 1 — 두려움】 핵이 너의 가장 무서운 환상을 보여준다.','narr');
+/* =========================================================
+   막간 · 마음을 나누는 시간
+   ========================================================= */
+async function intermission(){
+  sceneEl.innerHTML='';clearChoices();setMood(230);dangerMode(false);
+  addBlock('<div class="big">막간 · 강당 앞에서</div>');
+  await typeLine(null,'세 개의 룬이 강당 문 앞에서 천천히 회전한다. 문 너머로 검붉은 빛이 새어나온다. 들어가기 직전, 잠시 숨을 고른다.','narr');
+  if(S.flags.suaAlly){
+    await typeLine('수아','여기까지가… 내가 올 수 있는 끝이야. 그 너머는 너무 무서워. 미안해. 그치만, 너희는 분명 나랑 다를 거야.');
+    await typeLine('수아',`${S.name}야. 혹시… 나가게 되면, 가끔 날 기억해줄래? 그거면 충분해.`);
+  }
+  await typeLine(other(), S.allyTrust>=4
+    ? `${S.name}. 우리 진짜 여기까지 왔다. …솔직히 무섭긴 한데, 너랑 같이라서 하나도 안 두려워. 끝까지 같이야.`
+    : `${S.name}. …우리 할 수 있겠지? 솔직히 좀 무서워. 그래도 도망치진 않을게.`);
+  if(S.allyTrust>=4)adjust('fri',3);
   showChoices([
-    {text:'눈을 똑바로 뜨고 환상을 마주한다.',tag:'용기',tagClass:'cou',go:async()=>{
-      const r=await rollCheck('cou',13,'두려움의 시험');
-      await bossResolve(r,'fear');}},
-    {text:`${other()}의 손을 잡고 함께 버틴다.`,tag:'우정',tagClass:'fri',go:async()=>{
-      const r=await rollCheck('fri',12,'두려움의 시험 (함께)');
-      await bossResolve(r,'fear');}},
+    {text:`"여기까지 온 우리가 자랑스러워. 가자."`,tag:'우정',tagClass:'fri',go:async()=>{adjust('fri',2);adjust('hp',5);await typeLine(S.name,'우리 둘이라면 뭐든 할 수 있어. 들어가자.');next(chapter3);}},
+    {text:`잠시 마음을 가다듬고 각오를 다진다.`,tag:'용기',tagClass:'cou',go:async()=>{adjust('cou',2);adjust('hp',5);await typeLine(S.name,'…후. 좋아. 끝을 보자.');next(chapter3);}},
   ]);
 }
-async function bossResolve(r,phase){
-  if(r.success){ flash('rgba(94,242,255,.4)');chord([523,659,784,1046]);spawnBurst(W/2,H/2,'#5ef2ff');
-    await typeLine(null,'환상이 산산이 부서졌다. 핵이 한 발짝 물러난다.','narr'); adjust('cou',2);
-  } else { shake();flash('rgba(255,77,109,.45)');adjust('hp',-15);
-    await typeLine(null,'환상이 너를 집어삼킬 듯 휘몰아쳤다! 하지만 너는 쓰러지지 않았다.','narr');
-    if(S.allyTrust>=2){ await typeLine(other(),`정신 차려, ${S.name}! 난 네 옆에 있어!`); adjust('hp',6); }
+
+/* =========================================================
+   제 3 장 · 균열의 핵
+   ========================================================= */
+async function chapter3(){
+  sceneEl.innerHTML='';clearChoices();setMood(280);dangerMode(true);flash('rgba(180,107,255,.5)');shake();
+  addBlock('<div class="big glitch">제 3 장 · 균열의 핵</div>');
+  await typeLine(null,'강당 문이 세 룬에 반응해 굉음과 함께 열린다. 천장까지 솟은 거대한 균열의 핵이, 검붉은 심장처럼 박동하고 있다. 그 표면엔 수많은 얼굴들이 떠올랐다 사라진다.','narr');
+  beep(70,.8,'sawtooth',.09);
+  next(chapter3b);
+}
+async function chapter3b(){
+  await typeLine('승호','이거였구나… 모든 것의 중심. 얘들아, 마지막으로 잘 들어. 핵은 너희 감정을 거울처럼 비춘다. <b>분노로 부수려 하면 더 강해져.</b> 침착해야 해.');
+  await typeLine('???',`『……드디어 왔구나. 나는 이 학교가 삼킨 모든 외로움, 모든 두려움. 너희도 결국… 나처럼 될 거야. 여기 영원히.』`,'glitch');
+  await typeLine(other(),`${S.name}, 무섭지만… 끝까지 같이야. 알지?`);adjust('fri',1);
+  await typeLine(null,'핵이 검은 촉수를 뻗어 너희를 덮친다! 세 번의 시험이 시작된다.','narr');
+  next(bossPhase1);
+}
+async function bossPhase1(){
+  await typeLine(null,'【시험 1 · 두려움】 핵이 너의 가장 무서운 환상을 끌어올린다. 텅 빈 교실에 혼자 남겨진, 아무도 너를 찾지 않는 미래.','narr');
+  showChoices([
+    {text:'눈을 똑바로 뜨고 환상을 마주한다.',tag:'용기',tagClass:'cou',go:()=>bossResolve('cou',15,bossPhase2)},
+    {text:`${other()}의 손을 잡고 함께 버틴다.`,tag:'우정',tagClass:'fri',go:()=>bossResolve('fri',13,bossPhase2)},
+  ]);
+}
+async function bossResolve(stat,dc,nextFn){
+  const r=await rollCheck(stat,dc,'두려움의 시험');
+  if(r.success){flash('rgba(94,242,255,.4)');chord([523,659,784,1046]);spawnBurst(W/2,H/2,'#5ef2ff');
+    await typeLine(null,'환상이 산산이 부서졌다. 핵이 한 발짝 물러난다.','narr');adjust('cou',2);}
+  else{shake();flash('rgba(255,77,109,.45)');
+    await typeLine(null,'환상이 너를 집어삼킬 듯 휘몰아쳤다! 무릎이 꺾인다.','narr');
+    if(await damage(14,8))return;
+    if(S.allyTrust>=2){await typeLine(other(),`정신 차려, ${S.name}! 난 네 옆에 있어. 혼자가 아니야!`);adjust('hp',6);adjust('shadow',-3);}
   }
-  if(phase==='fear') bossPhase2();
+  next(nextFn);
 }
 async function bossPhase2(){
-  await wait(150);
-  await typeLine(null,'【시험 2 — 진실】 핵이 묻는다.','narr');
-  await typeLine('???',`『이 모든 건 너희 잘못이야. 균열을 연 건 너희의 외로움이지. …아니라고 말할 수 있어?』`);
+  await typeLine(null,'【시험 2 · 진실】 핵이 너의 죄책감을 파고든다.','narr');
+  await typeLine('???',`『이 모든 건 너희 잘못이야. 균열을 연 건 너희의 외로움이지. …아니라고, 말할 수 있어?』`);
   showChoices([
-    {text:'"외로웠던 건 맞아. 하지만 그건 잘못이 아니야."',tag:'지혜',tagClass:'wis',go:async()=>{
-      adjust('wis',3); const r=await rollCheck('wis',12,'진실의 시험');
-      await bossResolve2(r,true);}},
-    {text:'"닥쳐! 다 네 탓이잖아!"',tag:'용기',tagClass:'cou',go:async()=>{
-      await typeLine(null,'분노가 폭발하자 핵이 그 힘을 먹고 더 거대해졌다!','narr');
-      shake();flash('rgba(255,0,60,.5)');adjust('hp',-12);
-      const r=await rollCheck('cou',15,'분노한 핵');
-      await bossResolve2(r,false);}},
+    {text:'"외로웠던 건 맞아. 하지만 그건 잘못이 아니야."',tag:'지혜',tagClass:'wis',go:()=>bossResolve2('wise')},
+    {text:'"닥쳐! 다 네 탓이잖아!"',tag:'용기',tagClass:'cou',go:()=>bossResolve2('rage')},
+    {text:'"…그래. 우리도 외로웠어. 너처럼."',tag:'우정',tagClass:'fri',go:()=>bossResolve2('empathy')},
   ]);
 }
-async function bossResolve2(r,wise){
-  if(r.success){ flash('rgba(180,107,255,.4)');chord([587,740,880]);spawnBurst(W/2,H/2,'#b46bff');
-    await typeLine(null,'핵의 박동이 흔들린다. 그 표면에, 처음으로 작은 균열이 갔다.','narr');
-  } else { shake();adjust('hp',-10);
-    await typeLine(null,'핵이 거세게 반격했지만, 너희는 끝내 무릎 꿇지 않았다.','narr'); }
-  bossFinal();
+async function bossResolve2(mode){
+  let stat='wis',dc=13,pre=0;
+  if(mode==='rage'){
+    await typeLine(null,'분노가 폭발하자 핵이 그 힘을 게걸스럽게 먹고 더 거대해졌다!','narr');
+    shake();flash('rgba(255,0,60,.5)');if(await damage(12,10))return;stat='cou';dc=16;
+  }else if(mode==='empathy'){
+    adjust('fri',3);stat='fri';dc=12;await typeLine(S.name,'네 마음, 모르지 않아. 외로움이 얼마나 추운지 우리도 아니까.');
+  }else{adjust('wis',2);await typeLine(S.name,'외로움은 죄가 아니야. 우린 그냥… 누군가 손잡아주길 바랐을 뿐이야.');}
+  const r=await rollCheck(stat,dc,'진실의 시험');
+  if(r.success){flash('rgba(180,107,255,.4)');chord([587,740,880]);spawnBurst(W/2,H/2,'#b46bff');
+    await typeLine(null,'핵의 박동이 흔들린다. 그 표면에, 처음으로 작은 균열이 갔다.','narr');adjust('shadow',-4);}
+  else{shake();await typeLine(null,'핵이 거세게 반격했지만, 너희는 끝내 무릎 꿇지 않았다.','narr');if(await damage(10,6))return;}
+  next(bossPhase3);
+}
+async function bossPhase3(){
+  await typeLine(null,'【시험 3 · 기억】 핵의 표면이 잔잔해지며, 한 장면이 떠오른다.','narr');
+  await typeLine(null,'아무도 없는 교실, 책상에 엎드려 우는 한 아이. ……수아다. 오래전, 이 학교에 처음 균열을 연 외로운 아이.','narr');
+  if(S.flags.suaAlly){
+    await typeLine(S.name,'수아…? 그럼 네가… 이 모든 것의 시작이었구나. 줄곧 혼자였던 거야.');
+    await typeLine('수아','(핵 속에서) …미안해. 너무 외로워서, 나도 모르게 모두를 끌어들였어. 근데 너희는… 날 무서워하지 않았어. 처음으로.');
+    adjust('fri',2);
+  }else{
+    await typeLine(S.name,'저 아이가… 줄곧 혼자 이 어둠을 끌어안고 있었던 거구나.');
+  }
+  next(bossFinal);
 }
 async function bossFinal(){
-  await wait(150);
-  await typeLine('승호','지금이야! 핵이 약해졌어. 마지막은… 부수는 게 아니란다. <b>받아들이고, 보내주는 거야.</b>');
-  await typeLine(null,'핵의 중심에서, 외롭게 웅크린 작은 빛 하나가 보인다. 마치 길 잃은 아이처럼.','narr');
-  const finalChoices=[
+  await typeLine('승호','지금이야. 핵이 약해졌어. 마지막은… 부수는 게 아니란다. <b>받아들이고, 보내주는 거야.</b>');
+  await typeLine(null,'핵의 중심에서, 외롭게 웅크린 작은 빛 하나가 보인다. 길 잃은 아이처럼, 떨고 있다.','narr');
+  showChoices([
     {text:'균열의 불씨를 핵에 건넨다 — "이제 그만 쉬어도 돼."',tag:'불씨',tagClass:'luck',
-     locked:!has('균열의 불씨'),lockMsg:'불씨가 없다… 다른 방법을 찾아야 한다',
-     go:()=>ending('true')},
-    {text:'세 룬의 빛으로 핵을 감싸 안는다.',tag:'우정',tagClass:'fri',go:()=>ending('warm')},
-    {text:'온 힘을 다해 핵을 내리친다.',tag:'용기',tagClass:'cou',go:()=>ending('force')},
-  ];
-  showChoices(finalChoices);
+      locked:!has('균열의 불씨'),lockMsg:'불씨가 없다… 다른 길을 찾아야 한다',go:()=>resolveEnding('true')},
+    {text:'세 룬의 빛으로 핵을 가만히 감싸 안는다.',tag:'우정',tagClass:'fri',go:()=>resolveEnding('warm')},
+    {text:'온 힘을 다해 핵을 내리친다.',tag:'용기',tagClass:'cou',go:()=>resolveEnding('force')},
+  ]);
 }
 
-/* ===================== 엔딩 ===================== */
+/* =========================================================
+   엔딩
+   ========================================================= */
+function resolveEnding(type){
+  const strong=(S.hp>=40&&S.allyTrust>=3&&S.shadow<=50);
+  if(type==='true')ending('true');
+  else if(type==='warm'||(type==='force'&&strong))ending('warm');
+  else ending('force');
+}
 async function ending(type){
-  sceneEl.innerHTML=''; clearChoices(); dangerMode(false); setMood(160);
+  sceneEl.innerHTML='';clearChoices();dangerMode(false);setMood(160);
   let title,body,color,grade;
-
-  // 엔딩 판정 보조
-  const strong = (S.hp>=40 && S.allyTrust>=3);
-
   if(type==='true'){
-    flash('rgba(255,209,102,.6)'); chord([523,659,784,1046,1318]);
-    for(let i=0;i<5;i++) setTimeout(()=>spawnBurst(Math.random()*W,Math.random()*H,'#ffd166'),i*150);
-    title='🌟 진정한 결말 · "함께 돌아오다"';
-    color='#ffd166'; grade='S';
+    flash('rgba(255,209,102,.6)');chord([523,659,784,1046,1318]);
+    for(let i=0;i<6;i++)setTimeout(()=>spawnBurst(Math.random()*W,Math.random()*H,'#ffd166',20),i*150);
+    title='🌟 진정한 결말 · "함께 돌아오다"';color='#ffd166';grade='S';
     body=[
       `불씨가 핵의 가슴으로 스며들자, 검붉은 심장이 천천히 따뜻한 금빛으로 물들었다.`,
-      `『…고마워. 아무도 날 봐주지 않았는데. 너희가… 처음이야.』`,
-      `핵은 미소 짓듯 빛으로 흩어지고, 뒤집힌 학교가 원래대로 돌아오기 시작했다.`,
-      `정신을 차리니 다시 교실. 창밖엔 노을, 옆엔 ${other()}, 그리고 문을 열고 들어오는 승호 선생님.`,
+      `${S.flags.suaAlly?'『…고마워. 아무도 날 봐주지 않았는데. 너희가 처음이야. 이제… 더는 무섭지 않아.』':'『…고마워. 처음이야. 누군가 날 두려워하지 않은 건.』'}`,
+      `핵은 미소 짓듯 빛으로 흩어지고, 뒤집힌 학교가 원래대로 돌아오기 시작했다. 두 개의 달이 하나가 되고, 사물함이 제자리로 내려앉는다.`,
+      `정신을 차리니 다시 그 교실. 창밖엔 노을, 옆엔 ${other()}, 그리고 문을 열고 들어오는 승호 선생님.`,
     ];
-  }else if(type==='warm' || (type==='force'&&strong)){
-    flash('rgba(255,107,214,.5)'); chord([523,659,784,880]);
-    spawnBurst(W/2,H/2,'#ff6bd6');
-    title='💗 따뜻한 결말 · "외로움을 안아주다"';
-    color='#ff9ad4'; grade='A';
+  }else if(type==='warm'){
+    flash('rgba(255,107,214,.5)');chord([523,659,784,880]);spawnBurst(W/2,H/2,'#ff6bd6',40);
+    title='💗 따뜻한 결말 · "외로움을 안아주다"';color='#ff9ad4';grade='A';
     body=[
-      `세 룬의 빛이 핵을 부드럽게 감쌌다. 핵은 저항하다가, 결국 너희 품에서 조용히 잠들 듯 사그라들었다.`,
+      `세 룬의 빛이 핵을 부드럽게 감쌌다. 핵은 잠시 저항하다가, 결국 너희 품 안에서 조용히 잠들 듯 사그라들었다.`,
       `${other()}: "우리가… 해냈어, ${S.name}."`,
       `학교가 빛 속에서 복원되고, 너희는 손을 꼭 잡은 채 현실로 돌아왔다.`,
-      `완벽하진 않았지만, 가장 중요한 건 잃지 않았다. 서로를.`,
+      `완벽하진 않았을지 몰라도, 가장 중요한 건 끝까지 잃지 않았다. 서로를.`,
     ];
-  }else{ // force without strength
-    flash('rgba(94,242,255,.4)'); chord([392,523,659]);
-    title='⚔ 절반의 결말 · "부쉈지만…"';
-    color='#8be9ff'; grade='B';
+  }else{
+    flash('rgba(94,242,255,.4)');chord([392,523,659]);
+    title='⚔ 절반의 결말 · "부쉈지만…"';color='#8be9ff';grade='B';
     body=[
-      `너희는 온 힘을 다해 핵을 내리쳤다. 핵은 비명과 함께 부서졌지만, 마지막 순간 슬픈 눈빛을 남겼다.`,
+      `너희는 온 힘을 다해 핵을 내리쳤다. 핵은 비명과 함께 부서졌지만, 마지막 순간 슬픈 눈빛 하나를 남겼다.`,
       `학교는 돌아왔다. 하지만 가끔, 텅 빈 복도 끝에서 작은 흐느낌이 들리는 것 같다.`,
       `${other()}: "…우리, 정말 다 끝낸 거 맞지?"`,
-      `무사히 돌아왔다. 다만, 누군가를 구할 수 있었을지도 모른다는 생각이 마음 한켠에 남았다.`,
+      `무사히 돌아왔다. 다만, 누군가를 구할 수 있었을지도 모른다는 생각이 마음 한켠에 오래 남았다.`,
     ];
   }
-
   addBlock(`<div class="big" style="background:linear-gradient(90deg,${color},#fff,${color});-webkit-background-clip:text;background-clip:text;">${title}</div>`);
-  for(const b of body){ await typeLine(null,b,'narr'); await wait(120); }
-  await wait(200);
+  for(const b of body){await typeLine(null,b,'narr');await wait(120);}
   addBlock('<div class="hr"></div>');
   await typeLine('승호','얘들아, 청소 다 했…… 어? 너희 왜 그렇게 봐? 무슨 일 있었니?');
-  await typeLine(S.name, S.name==='범진'?'…아니에요, 선생님. 그냥… 좋은 친구가 있어서 다행이다 싶어서요.':'아무것도 아니에요. 그냥, 오늘 하루… 평생 잊지 못할 것 같아서요.');
-  await wait(200);
+  await typeLine(S.name, S.name==='범진'?'…아니에요, 선생님. 그냥, 좋은 친구가 있어서 다행이다 싶어서요.':'아무것도 아니에요. 그냥, 오늘 하루… 평생 잊지 못할 것 같아서요.');
+  showResult(grade,color);
+}
 
-  // 결과 요약
+async function gameOver(){
+  sceneEl.innerHTML='';clearChoices();dangerMode(true);setMood(0);flash('rgba(255,0,40,.5)');shake();
+  addBlock('<div class="big" style="background:linear-gradient(90deg,#ff4d6d,#7a0a1f);-webkit-background-clip:text;background-clip:text;">💀 침몰 · "그림자가 되다"</div>');
+  await typeLine(null,'시야가 검게 물든다. 더는 손가락 하나 움직일 힘이 없다.','narr');
+  await typeLine(other(),`안 돼… ${S.name}! 눈 떠! 제발…!`);
+  await typeLine(null,`${other()}의 목소리가 점점 멀어진다. 너의 몸이 보랏빛 안개로 흩어지며, 뒤집힌 학교의 일부가 되어간다.`,'narr');
+  await typeLine(null,'…언젠가, 또 다른 누군가가 이 학교에 갇힌다면. 그때 너는, 그늘 속에서 그들에게 길을 알려주는 또 하나의 그림자가 되어 있을 것이다.','narr');
+  await typeLine('승호','(아득히 멀리서) …미안하다, 얘들아. 다음엔… 꼭…');
+  showResult('F','#ff4d6d',true);
+}
+
+function showResult(grade,color,over){
   const solved=[S.flags.roomLib,S.flags.roomGym,S.flags.roomMusic].filter(Boolean).length;
-  addBlock(`
-    <div style="text-align:center;margin-top:10px">
+  addBlock(`<div style="text-align:center;margin-top:10px">
       <div style="font-family:'Black Han Sans';font-size:40px;color:${color};filter:drop-shadow(0 0 20px ${color})">평가 ${grade}</div>
       <div class="line" style="font-size:15px;color:#aebbe0">
-        주인공: <b>${S.face} ${S.name}</b> · 동료: <b>${other()}</b><br>
-        남은 체력 ${S.hp} · 용기 ${S.cou} · 지혜 ${S.wis} · 우정 ${S.fri}<br>
-        유대 ${S.allyTrust} · 봉인 ${solved}/3 · 획득 아이템 ${S.inv.length}개<br>
+        주인공 <b>${S.face} ${S.name}</b> · 동료 <b>${other()}</b><br>
+        체력 ${S.hp} · 용기 ${S.cou} · 지혜 ${S.wis} · 우정 ${S.fri} · 침식 ${S.shadow}<br>
+        유대 ${S.allyTrust} · 봉인 ${solved}/3 · 아이템 ${S.inv.length}개<br>
         <span class="chip" style="margin-top:8px;display:inline-block">${S.inv.join(' · ')||'없음'}</span>
-      </div>
-    </div>
-  `);
-  await typeLine(null,'— THE END —','big');
+      </div></div>`);
+  if(!over)addBlock('<div class="big">— THE END —</div>'); else setMood(0);
   showChoices([
     {text:'🔄 다시 플레이 (다른 선택, 다른 결말)',tag:'재시작',tagClass:'luck',go:()=>{resetGame();start();}},
     {text:`🎭 ${other()}의 시점으로 다시 해보기`,go:()=>{resetGame();start();}},
   ]);
-  setMood(200);
 }
 
 function resetGame(){
-  S.name=null;S.face='🧑';S.hp=100;S.cou=50;S.wis=50;S.fri=50;S.inv=[];S.flags={};S.allyTrust=0;
-  dangerMode(false); hud.style.display='none'; sceneEl.classList.remove('center');
-  refreshHUD();
+  S.name=null;S.face='🧑';S.hp=100;S.cou=50;S.wis=50;S.fri=50;S.shadow=0;S.inv=[];S.flags={};S.allyTrust=0;S.gameOver=false;
+  dangerMode(false);hud.style.display='none';sceneEl.classList.remove('center');refreshHUD();
 }
 
-/* ---------- 시작 ---------- */
+/* 시작 */
 start();
 </script>
 </body>
